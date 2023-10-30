@@ -6,7 +6,7 @@ export default function Page() {
     const pathname = usePathname()
     return (
           <div className={styles.main}>
-            <h1>This the the {pathname} page using next.js</h1>
+            <h1>This is the {pathname} page using next.js</h1>
           </div>
       )
 }
