@@ -1,8 +1,8 @@
 'use client'
-import styles from './page.module.css'
+import styles from './about.module.css'
 import { usePathname } from 'next/navigation'
 
-export default function Page() {
+export default function About() {
     const pathname = usePathname()
     return (
           <div className={styles.main}>
