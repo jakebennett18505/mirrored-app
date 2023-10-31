@@ -1,16 +1,14 @@
 'use client';
 
 import Image from 'next/image'
-import styles from './page.module.css'
-import { usePathname } from 'next/navigation'
 
+import { usePathname } from 'next/navigation'
+import PageHeader from '../components/PageHeader/PageHeader.js';
 
 
 export default function Home() {
-  const pathname = usePathname()
-  return (
-    <div className={styles.main}>
-      <h1>This is the {pathname} page using next.js</h1>
-    </div>
-)
+  const fetchedpath = usePathname()
+    return (
+      <PageHeader pathname={fetchedpath} />
+      )
 }

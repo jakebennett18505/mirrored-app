@@ -1,12 +1,11 @@
 'use client'
 import styles from './about.module.css'
 import { usePathname } from 'next/navigation'
+import PageHeader from 'components/PageHeader/PageHeader.js';
 
 export default function About() {
-    const pathname = usePathname()
+    const fetchedpath = usePathname()
     return (
-          <div className={styles.main}>
-            <h1>This is the {pathname} page using next.js</h1>
-          </div>
+      <PageHeader pathname={fetchedpath} />
       )
 }
