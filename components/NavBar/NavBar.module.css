@@ -23,6 +23,16 @@
 .logo {
     height: 40px;
     width: 100%;
-    background-color: rgb(109, 178, 109);
-    border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+    .container {
+        width: 100%;
+        height: unset;
+    }
+
+    .navList {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }

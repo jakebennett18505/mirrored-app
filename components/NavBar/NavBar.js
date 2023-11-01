@@ -5,8 +5,7 @@ import Link from 'next/link';
 const NavBar = () => {
     return (
         <div className={styles.container}>
-            {/* <img className={styles.logo} src="public/vercel.svg" alt="logo" /> */}
-            <div className={styles.logo}></div>
+            <img className={styles.logo} src="/vercel.svg" alt="logo" />
             <ul className={styles.navList}>
                 <li className={styles.navItem}><Link href="/">Home</Link></li>
                 <li className={styles.navItem}><Link href="/about">About</Link></li>
