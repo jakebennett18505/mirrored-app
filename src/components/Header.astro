@@ -1,6 +1,5 @@
 ---
 import Hamburger from "./Hamburger.astro";
-import Navigation from "./Navigation.astro";
 import "/sass/main.scss";
 ---
 
@@ -16,7 +15,7 @@ import "/sass/main.scss";
           <li><a href="">Gallery</a></li>
           <li><a href="">About</a></li>
           <li><a href="">Log in</a></li>
-          <li><a class="button" data-type="primary" href="">Sign up</a></li>
+          <button class="button" data-type="primary">Sign up</button>
         </ul>
       </div>
       <Hamburger />
@@ -28,6 +27,12 @@ import "/sass/main.scss";
   .nav {
     align-items: center;
   }
+
+  .site-header {
+    transition: height 0.5s ease-in-out;
+
+  }
+
   @media (max-width: 800px) {
     .nav {
       display: none;
@@ -40,12 +45,13 @@ import "/sass/main.scss";
       background-color: var(--neutral-00);
     }
 
-    .nav > li {
-      padding: 8px 16px;
+    .nav > li, .button {
+      margin: 8px 16px;
     }
 
     .button {
-      width: 100%;
+      flex-grow: 1;
+      max-width: 400px;
     }
   }
 
