@@ -1,0 +1,55 @@
+---
+import Hamburger from "./Hamburger.astro";
+import Navigation from "./Navigation.astro";
+import "/sass/main.scss";
+---
+
+<header class="site-header">
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="/">
+        <img src="/logo.png" alt="" height="40px" />
+      </a>
+      <div>
+        <ul id="nav" class="nav flex-group">
+          <li><a href="">Locations</a></li>
+          <li><a href="">Gallery</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Log in</a></li>
+          <li><a class="button" data-type="primary" href="">Sign up</a></li>
+        </ul>
+      </div>
+      <Hamburger />
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav {
+    align-items: center;
+  }
+  @media (max-width: 800px) {
+    .nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      align-items: unset;
+      width: 100%;
+      top: 64px;
+      right: 0px;
+      background-color: var(--neutral-00);
+    }
+
+    .nav > li {
+      padding: 8px 16px;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+
+  .expanded {
+    display: flex;
+  }
+</style>

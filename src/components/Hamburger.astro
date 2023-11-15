@@ -1,0 +1,40 @@
+---
+
+---
+
+<script>
+  document.querySelector(".hamburger").addEventListener("click", () => {
+    document.getElementById("nav").classList.toggle("expanded");
+    // document.getElementById("nav").classList.toggle("hidden");
+    console.log("Hamburger menu clicked");
+  });
+</script>
+
+<div class="hamburger">
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</div>
+
+<style>
+  .hamburger {
+    padding: 8px 4px;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hamburger .line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: hsl(201, 43%, 44%);
+  }
+
+  @media (max-width: 800px) {
+    .hamburger {
+      display: flex;
+    }
+  }
+</style>

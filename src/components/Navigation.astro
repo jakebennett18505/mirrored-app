@@ -1,0 +1,37 @@
+---
+
+---
+
+<nav id="nav" class="expanded">
+  <ul class="nav">
+    <li><a href="/locations">Locations</a></li>
+    <li><a href="">Art</a></li>
+    <li><a href="">Exhibitions</a></li>
+    <li><a href="">Login</a></li>
+    <button class="button" data-type="primary">Sign up</button>
+  </ul>
+</nav>
+
+<style>
+  .nav {
+    display: flex;
+    direction: row;
+    align-items: center;
+
+  }
+
+  @media (max-width: 800px) {
+    #nav {
+      display: flex;
+      flex-direction: column;
+      height: 400px;
+      width: 200px;
+      position: fixed;
+      top: 80px;
+      right: 10px;
+  }
+
+  .expanded {
+    display: unset;
+  }
+</style>
