@@ -1,0 +1,29 @@
+---
+export interface Props {
+  title: string;
+  image: string;
+}
+
+const { title, image } = Astro.props;
+---
+
+<div class="item">
+  <img src={image} />
+  <p class="fs-700 fw-500">{title}</p>
+</div>
+
+<style>
+  .item {
+    display: inline-block;
+    margin-block: 1.5em;
+    background: #fff;
+    width: 100%;
+    -webkit-transition: 1s ease all;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .item img {
+    max-width: 100%;
+  }
+</style>
