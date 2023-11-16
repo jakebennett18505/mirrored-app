@@ -65,9 +65,9 @@ $hero-padding-block: clamp(15rem, 15vh, 20rem);
 $section-padding-block: clamp(2rem, 10vh, 3rem);
 
 $container-min-margin-inline: $size-16;
-$container-max-width: 64rem;
-$container-max-width-narrow: 40rem;
-$container-max-width-wide: 75rem;
+$container-max-width: 75rem;
+$container-max-width-narrow: 64rem;
+$container-max-width-wide: 90rem;
 
 // site header
 $site-header-background-color: $color-neutral-00;
