@@ -10,6 +10,7 @@
     gap: $size-4;
     align-items: $site-header-alignment;
     justify-content: $site-header-jusitifcation-small-screens;
+    flex-wrap: wrap;
 
     @include mq(medium) {
       justify-content: $site-header-jusitifcation-large-screens;
