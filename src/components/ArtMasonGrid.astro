@@ -1,13 +1,14 @@
 ---
 import ArtCard from "../components/ArtCard.astro";
-import artList from "/src/pages/artwork/artList.json";
+import artList from "../pages/artwork/artList.json";
 ---
+
 <div class="masonry">
-{
+  {
     artList.map((artList) => {
-        return <ArtCard title={artList.title} image={artList.image_url} />;
+      return <ArtCard title={artList.title} image={artList.image_url} />;
     })
-}
+  }
 </div>
 
 <style>
