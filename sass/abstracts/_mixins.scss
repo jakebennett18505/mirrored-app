@@ -33,3 +33,14 @@
   font-weight: $heading-font-weight;
   line-height: $heading-line-height;
 }
+
+@mixin subtitle($fs, $color: $subtitle-color-default) {
+  font-size: $fs;
+  color: $color;
+
+  font-family: $subtitle-font-family;
+  text-transform: $subtitle-text-transform;
+  letter-spacing: $subtitle-letter-spacing;
+  font-weight: $subtitle-font-weight;
+  line-height: $subtitle-line-height;
+}

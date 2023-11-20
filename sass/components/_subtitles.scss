@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+
+.subtitle-1 {
+  @include subtitle($subtitle-1-font-size, $subtitle-1-color);
+}
+.subtitle-2 {
+  @include subtitle($subtitle-2-font-size, $subtitle-2-color);
+}
+.subtitle-3 {
+  @include subtitle($subtitle-3-font-size, $subtitle-3-color);
+}

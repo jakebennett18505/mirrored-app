@@ -34,7 +34,7 @@ $box-shadow-5: 0px 6px 5px rgb(0, 0, 0, 0.04), 0px 22px 18px rgb(0, 0, 0, 0.06),
 
 // body
 $body-font-family: $font-family-base;
-$body-font-size: $font-size-400;
+$body-font-size: $font-size-300;
 $body-line-height: 1.5;
 $body-font-weight: $font-weight-default;
 $body-text-color: $color-text-default;
@@ -43,18 +43,32 @@ $body-background-color: $color-background-default;
 $link-color: $color-text-interactive-default;
 $link-color-hover: $color-text-interactive-hover;
 
-$heading-font-family: $font-family-accent;
+$subtitle-font-family: $font-family-base;
+$subtitle-color-default: $color-neutral-90;
+$subtitle-font-weight: $font-weight-subtitle;
+$subtitle-letter-spacing: $letter-spacing-loose;
+$subtitle-line-height: 1.2;
+$subtitle-text-transform: none;
+
+$subtitle-1-font-size: $font-size-700;
+$subtitle-1-color: $subtitle-color-default;
+$subtitle-2-font-size: $font-size-600;
+$subtitle-2-color: $subtitle-color-default;
+$subtitle-3-font-size: $font-size-500;
+$subtitle-3-color: $subtitle-color-default;
+
+$heading-font-family: $font-family-base;
 $heading-color-default: $color-neutral-90;
 $heading-font-weight: $font-weight-bold;
 $heading-letter-spacing: $letter-spacing-loose;
-$heading-line-height: 1.1;
+$heading-line-height: 1.2;
 $heading-text-transform: none;
 
-$heading-1-font-size: $font-size-900;
+$heading-1-font-size: $font-size-1000;
 $heading-1-color: $heading-color-default;
-$heading-2-font-size: $font-size-800;
+$heading-2-font-size: $font-size-900;
 $heading-2-color: $heading-color-default;
-$heading-3-font-size: $font-size-700;
+$heading-3-font-size: $font-size-800;
 $heading-3-color: $heading-color-default;
 
 // layout
@@ -98,10 +112,10 @@ $footer-link-text-decoration: none;
 
 // buttons
 $button-font-family: $body-font-family;
-$button-font-size: $font-size-400;
-$button-font-weight: $font-weight-bold;
+$button-font-size: $font-size-300;
+$button-font-weight: $font-weight-semi-bold;
 $button-text-transform: none;
-$button-padding: 0.75rem 2rem;
+$button-padding: 0.75rem 1rem;
 $button-border: 0;
 $button-border-radius: $border-radius-1;
 

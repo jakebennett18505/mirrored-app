@@ -8,10 +8,10 @@ export interface Props {
 const { title, image, id } = Astro.props;
 ---
 
-<a href={`/artwork/${id}`}>
+<a href={`/art/${id}`}>
   <div class="item">
     <img src={image} />
-    <p class="fs-700 fw-500">{title}</p>
+    <p class="subtitle-3">{title}</p>
   </div>
 </a>
 
