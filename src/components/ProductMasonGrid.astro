@@ -8,7 +8,7 @@ import { products } from '../pages/products.js'
 <div class="masonry">
   {
   products.map((product) => 
-    <ProductCard id={product.id} title={product.title} image={product.images[0]} />
+    <ProductCard product={product} />
   )
 }
 </div>

@@ -1,17 +1,25 @@
 ---
-export interface Props {
-  title: string;
-  image: string;
+interface Product {
   id: string;
+  title: string;
+  price: number;
+  images: string[];
+  brand: string;
+  description: string;
 }
 
-const { title, image, id } = Astro.props;
+export interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
 ---
 
-<a href={`/art/${id}`}>
+<a href={`/art/${product.id}`}>
   <div class="item">
-    <img src={image} />
-    <p class="subtitle-3">{title}</p>
+    <img src={product.images[0]} />
+    <p class="subtitle-3">{product.title}</p>
+    <p class="subtitle-3 fs-400">€{product.price}</p>
   </div>
 </a>
 
