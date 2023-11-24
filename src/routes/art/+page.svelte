@@ -1,7 +1,7 @@
 <script>
 	import ArtMasonGrid from '../_components/_art/ArtMasonGrid.svelte';
 	export let data;
-	const { products } = data;
+	const { art } = data;
 </script>
 
 <svelte:head>
@@ -11,6 +11,6 @@
 
 <section class="section">
 	<div class="container">
-		<ArtMasonGrid {products} />
+		<ArtMasonGrid {art} />
 	</div>
 </section>

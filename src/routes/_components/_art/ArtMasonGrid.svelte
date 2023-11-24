@@ -1,12 +1,12 @@
 <script>
 	import ArtCard from './ArtCard.svelte';
 
-	export let products
+	export let art
 </script>
 
 <div class="masonry">
-	{#each products as product}
-		<ArtCard product={product} />
+	{#each art as artwork}
+		<ArtCard artwork={artwork} />
 	{/each}
 </div>
 

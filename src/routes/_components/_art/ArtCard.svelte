@@ -1,12 +1,12 @@
 <script>
-	export let product;
+	export let artwork;
 </script>
 
-<a href="/art/{product.id}">
+<a href="/art/{artwork.id}">
 	<div class="item">
-		<img src={product.images[0]} alt="Something to see" />
-		<p class="subtitle-3">{product.title}</p>
-		<p class="subtitle-3 fs-400">€{product.price}</p>
+		<img src={artwork.images[0]} alt="Something to see" />
+		<p class="subtitle-3">{artwork.title}</p>
+		<p class="subtitle-3 fs-400">€{artwork.price}</p>
 	</div>
 </a>
 

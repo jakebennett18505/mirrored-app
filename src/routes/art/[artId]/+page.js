@@ -9,6 +9,6 @@ export async function load({fetch, params}) {
 	};
 
 	return {
-		product: fetchProduct(params.artId)
+		artwork: fetchProduct(params.artId)
 	};
 }

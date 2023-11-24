@@ -1,9 +1,9 @@
 <script>
-	export let product;
+	export let artwork;
 </script>
 
 <div class="wrapper">
-	{#each product.images as image}
+	{#each artwork.images as image}
 		<img src={image} alt="Something to see" />
         {/each}
         <div class="image"></div>
