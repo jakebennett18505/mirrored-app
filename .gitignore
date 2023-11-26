@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+
+# Svelte build output
+public/build/
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
