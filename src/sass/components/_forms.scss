@@ -3,6 +3,7 @@
 .contact-form {
   .form-group {
     display: grid;
+    gap: 8px;
   }
 }
 label {
@@ -10,6 +11,10 @@ label {
   font-family: $form-label-font-family;
   font-weight: $form-label-font-weight;
   font-size: $form-label-font-size;
+}
+
+.form-group > .button {
+  margin-top: 32px;
 }
 
 input:not(.button) {
@@ -21,6 +26,13 @@ input:not(.button) {
   border: $form-input-border-default;
   border-radius: $form-input-border-radius;
 }
+
+input:not(.button):is(:focus, :active) {
+  outline: $form-input-outline-focus;
+  border: $form-input-border-focus;
+}
+
+
 
 ::placeholder {
   color: $form-placeholder-color;
