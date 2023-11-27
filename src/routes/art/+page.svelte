@@ -1,5 +1,5 @@
 <script>
-	import ArtMasonGrid from '../_components/_art/ArtMasonGrid.svelte';
+	import ArtMasonGrid from '/src/components/art/ArtMasonGrid.svelte';
 	export let data;
 	const { art } = data;
 </script>
