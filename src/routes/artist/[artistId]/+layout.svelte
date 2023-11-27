@@ -2,15 +2,24 @@
   import { page } from "$app/stores";
   import ArtistSocialIcons from "../../../components/ArtistSocialIcons.svelte";
 
-  const { data } = $page;
+  const { data, params } = $page;
   const { artist } = data;
 
-  const services = ["Commissions", "Prints", "Drawings", "Lorem"];
+  const artistId = params.artistId;
+
+  const services = [
+    "Commissions",
+    "Prints",
+    "Drawings",
+    "Paintings",
+    "Sketches",
+    "Ink",
+    "Tattoos",
+  ];
 </script>
 
 <section class="artist-header">
-  <div class="header-image-wrapper">
-  </div>
+  <div class="header-image-wrapper"></div>
   <div class="header-profile | container">
     <div class="profile-image-wrapper">
       <img
@@ -32,7 +41,7 @@
       </div>
       <div class="services">
         {#each services as service}
-          <p>{service}</p>
+          <p class="fs-200">{service}</p>
         {/each}
       </div>
     </div>
@@ -42,21 +51,33 @@
   <div class="container | flex-group justify-center">
     <ul class="tab-nav">
       <li
-        aria-current={$page.url.pathname.endsWith("/home") ? "page" : undefined}
-      >
-        <a data-sveltekit-noscroll href="home">Home</a>
-      </li>
-      <li
-        aria-current={$page.url.pathname.endsWith("/gallery")
+        aria-current={$page.url.pathname === `/artist/${artistId}`
           ? "page"
           : undefined}
       >
-        <a data-sveltekit-noscroll href="gallery">Gallery</a>
+        <a class="subtitle-3" data-sveltekit-noscroll href="/artist/{artistId}"
+          >Home</a
+        >
       </li>
       <li
-        aria-current={$page.url.pathname.endsWith("/bio") ? "page" : undefined}
+        aria-current={$page.url.pathname.endsWith("gallery")
+          ? "page"
+          : undefined}
       >
-        <a data-sveltekit-noscroll href="bio">Bio</a>
+        <a
+          class="subtitle-3"
+          data-sveltekit-noscroll
+          href="/artist/{artistId}/gallery">Gallery</a
+        >
+      </li>
+      <li
+        aria-current={$page.url.pathname.endsWith("bio") ? "page" : undefined}
+      >
+        <a
+          class="subtitle-3"
+          data-sveltekit-noscroll
+          href="/artist/{artistId}/bio">Bio</a
+        >
       </li>
     </ul>
   </div>
@@ -72,8 +93,8 @@
 
   .header-image-wrapper {
     height: 300px;
-    overflow: hidden; 
-    background-image: url('$lib/images/artist-hero-image.jpg');
+    overflow: hidden;
+    background-image: url("$lib/images/artist-hero-image.jpg");
     background-size: cover;
     background-position: center;
   }
@@ -139,8 +160,7 @@
 
   li > a {
     text-decoration: none;
-    font-size: 24px;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--neutral-40);
   }
 
