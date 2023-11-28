@@ -1,17 +1,15 @@
-# create-svelte
+# Impressd App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This project is built using [SvelteKit](https://kit.svelte.dev/), a framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.
 
-## Creating a project
+## Getting started
 
-If you're seeing this, you've probably already done this step. Congrats!
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+### Clone the repo
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+git clone https://github.com/jakebennett18505/impressd-app.git
+cd impressd-app
 ```
 
 ## Developing
@@ -25,14 +23,6 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## Deployment
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Deployment is handled automatically with vercel
