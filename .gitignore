@@ -3,6 +3,7 @@ node_modules/
 
 # Svelte build output
 public/build/
+/.svelte-kit
 
 # IDE/Editor specific files
 .vscode/
