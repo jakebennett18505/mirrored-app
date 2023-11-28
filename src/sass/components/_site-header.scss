@@ -4,6 +4,7 @@
   color: $site-header-color;
   background-color: $site-header-background-color;
   padding: $site-header-padding;
+  z-index: 1000;
 
   &__inner {
     display: flex;

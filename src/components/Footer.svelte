@@ -2,7 +2,7 @@
     <div class="container">
       <div class="clr-neutral-00 flow">
         <p class="text-center | fs-600">impressd.</p>
-        <ul class="nav | flex-group justify-center">
+        <ul class="nav-footer | flex-group justify-center">
           <li><a href="/">Locations</a></li>
           <li><a href="/art">Art</a></li>
           <li><a href="/">Exhibitions</a></li>

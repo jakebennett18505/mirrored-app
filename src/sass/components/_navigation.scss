@@ -6,12 +6,33 @@
   font-family: $navigation-font-family;
   font-weight: $navigation-font-weight;
 
-  a {
+  a:not(.button) {
     color: $navigation-color;
     text-decoration: $navigation-link-text-decoration;
     
     &:is(:hover, :focus) {
       color: $navigation-color-hover;
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: calc(45em - 1px)) {
+    font-size: $font-size-500;
+  }
+}
+
+.nav-footer {
+  --flex-column-gap: #{$navigation-gap};
+  list-style: none;
+  font-family: $navigation-font-family;
+  font-weight: $navigation-font-weight;
+
+  a:not(.button) {
+    color: $color-neutral-00;
+    text-decoration: $navigation-link-text-decoration;
+    
+    &:is(:hover, :focus) {
+      color: $color-neutral-00;
       text-decoration: underline;
     }
   }
