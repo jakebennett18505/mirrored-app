@@ -1,13 +1,27 @@
 <script>
-  //Imports
-  import { page } from "$app/stores";
-  import { XIcon, MenuIcon } from "svelte-feather-icons";
+  import {
+    Navbar,
+    NavBrand,
+    NavLi,
+    NavUl,
+    NavHamburger,
+    Dropdown,
+    DropdownItem,
+    DropdownHeader,
+    DropdownDivider,
+    Button,
+    Avatar,
+    DarkMode,
+  } from "flowbite-svelte";
+  import { ChevronDownOutline } from "flowbite-svelte-icons";
   import logo from "$lib/images/logo.png";
+  import profilePicture from "$lib/images/profile-picture-3.webp";
+  import { page } from "$app/stores";
 
-  //Session handling
-  const supabase = $page.data.supabase;
-  const session = $page.data.session;
+  // Session handling
+  const { supabase, session } = $page.data;
 
+  $: activeUrl = $page.url.pathname;
   async function handleSignOut() {
     try {
       // Call the signOut method to sign the user out
@@ -18,7 +32,6 @@
         console.error("Sign-out error:", error.message);
       } else {
         // Redirect to the homepage or any desired page after successful sign-out
-        toggleMenu();
         window.location.href = "/"; // You can change the URL as needed
       }
     } catch (error) {
@@ -26,147 +39,89 @@
     }
   }
 
-  // Hamburger menu functionality
-  let isMenuActive = false;
-
-  function toggleMenu() {
-    isMenuActive = !isMenuActive;
-  }
-
-  function closeMenu() {
-    isMenuActive = false;
-  }
+  //Nav items
+  export const navList = [
+    {
+      name: "Locations",
+      link: "/locations",
+      subLinks: [
+        { name: "All", link: "/locations" },
+        { name: "Berlin", link: "/berlin" },
+        { name: "London", link: "/london" },
+        { name: "Paris", link: "/paris" },
+        { name: "Amsterdam", link: "/amsterdam" },
+      ],
+    },
+    {
+      name: "Gallery",
+      link: "/art",
+    },
+    {
+      name: "Artists",
+      link: "/artist/1",
+      subLinks: [
+        { name: "All", link: "/artist/1" },
+        { name: "New", link: "/artist/new" },
+        { name: "Exhibiting", link: "/artist/exhibiting" },
+      ],
+    },
+  ];
 </script>
 
-<header class="site-header">
-  <div class="header container">
-    <div class="column-1">
-      <div>
-        <a href="/">
-          <img class="logo" src={logo} alt="Logo" />
-        </a>
-      </div>
-      <button
-        class="hamburger {isMenuActive ? 'active' : ''}"
-        on:click={toggleMenu}
-      >
-        {#if isMenuActive}
-          <XIcon size="32" strokeWidth="1" />
-        {:else}
-          <MenuIcon size="32" strokeWidth="1" />
-        {/if}
-      </button>
-    </div>
-    <nav class="nav-menu {isMenuActive ? 'active' : ''}">
-      <ul class="menu-items nav {isMenuActive ? 'active' : ''}">
-        <li><a href="/" on:click={closeMenu}>Locations</a></li>
-        <li><a href="/art" on:click={closeMenu}>Gallery</a></li>
-        <li><a href="/" on:click={closeMenu}>About</a></li>
-        {#if !session}
-          <li><a href="/auth/login" on:click={closeMenu}>Log in</a></li>
-          <li>
-            <a
-              data-type="primary"
-              class="button"
-              href="/auth/register"
-              on:click={closeMenu}>Sign in</a
-            >
-          </li>
-        {:else}
-          <button class="button" data-type="primary" on:click={handleSignOut}
-            >Sign out</button
-          >
-        {/if}
-      </ul>
-    </nav>
+<Navbar>
+  <NavBrand href="/">
+    <img src={logo} class="mr-3 h-6 sm:h-9" alt="impressd Logo" />
+  </NavBrand>
+  <div class="flex md:order-2">
+    <DarkMode class="mx-4" />
+
+    {#if !session}
+    <Button size="sm">Sign up</Button>
+    {:else}
+    <Avatar
+    id="user-drop"
+    src={profilePicture}
+    class="cursor-pointer"
+    dot={{ color: "green" }}
+    />
+    <Dropdown triggeredBy="#user-drop">
+      <DropdownHeader>
+        <span class="block text-sm">Bonnie Green</span>
+        <span class="block truncate text-sm font-medium"
+        >name@flowbite.com</span
+        >
+      </DropdownHeader>
+      <DropdownItem>Dashboard</DropdownItem>
+      <DropdownItem>Settings</DropdownItem>
+        <DropdownItem>Earnings</DropdownItem>
+        <DropdownItem on:click={handleSignOut} slot="footer"
+          >Sign out</DropdownItem
+        >
+      </Dropdown>
+    {/if}
+    <NavHamburger />
   </div>
-</header>
-
-<style lang="scss">
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media (min-width: 45em) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-
-  .logo {
-    height: 40px;
-    width: 150px;
-  }
-
-  .hamburger {
-    border: unset;
-    background-color: transparent;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    color: var(--primary-100);
-    padding: 4px;
-
-    @media (min-width: 45em) {
-      display: none;
-    }
-  }
-
-  .column-1 {
-    display: flex;
-    width: 100%;
-    height: 40px;
-    justify-content: space-between;
-    align-items: center;
-
-    @media (min-width: 45em) {
-      max-width: 200px;
-    }
-  }
-
-  .nav-menu {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 64px;
-    height: 0px;
-    background-color: var(--neutral-00);
-    
-    &.active {
-      transition: height 0.3s ease-in-out;
-      height: calc(100% - 64px);
-    }
-
-    @media (min-width: 45em) {
-      display: flex;
-      align-items: center;
-      height: 40px;
-      width: 100%;
-      position: static;
-      transition: none;
-      justify-content: flex-end;
-    }
-  }
-
-  .menu-items {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    opacity: 0;
-    max-height: 100%;
-    
-    &.active {
-      transition-delay: 0.1s;
-      transition: opacity 0.3s ease-in-out;
-      opacity: 1;
-    }
-
-    @media (min-width: 45em) {
-      opacity: 1;
-      flex-direction: row;
-      transition: none;
-    }
-  }
-</style>
+  <NavUl>
+    {#each navList as nav}
+      {#if !nav.subLinks}
+        <NavLi
+          class="font-light text-lg cursor-pointer md:text-base"
+          href={nav.link}>{nav.name}</NavLi
+        >
+      {:else}
+        <NavLi class="font-light text-lg cursor-pointer md:text-base">
+          {nav.name}<ChevronDownOutline
+            class="w-3 h-3 ml-2 text-primary-800 dark:text-white inline"
+          />
+        </NavLi>
+        <Dropdown class="w-44 z-20">
+          {#each nav.subLinks as sublink}
+            <DropdownItem class="font-light text-base" href={sublink.link}
+              >{sublink.name}</DropdownItem
+            >
+          {/each}
+        </Dropdown>
+      {/if}
+    {/each}
+  </NavUl>
+</Navbar>

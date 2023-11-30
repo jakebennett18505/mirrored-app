@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 body {
   min-height: 100vh;
@@ -10,4 +10,17 @@ body {
 
 main {
   flex-grow: 1;
+}
+
+.test {
+  color: #fff5f2;
+  color: #fff1ee;
+  color: #ffe4de;
+  color: #ffd5cc;
+  color: #ffbcad;
+  color: #fe795d;
+  color: #ef562f;
+  color: #eb4f27;
+  color: #cc4522;
+  color: #a5371b;
 }
