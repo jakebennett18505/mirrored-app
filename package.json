@@ -12,6 +12,7 @@
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/enhanced-img": "^0.1.5",
 		"@sveltejs/kit": "^1.27.4",
 		"@tailwindcss/typography": "^0.5.10",
 		"autoprefixer": "^10.4.16",
@@ -24,6 +25,7 @@
 		"flowbite-svelte-icons": "^0.4.5",
 		"flowbite-typography": "^1.0.3",
 		"postcss": "^8.4.31",
+		"postcss-dark-theme-class": "^1.1.0",
 		"prettier": "^3.0.0",
 		"prettier-plugin-svelte": "^3.0.0",
 		"svelte": "^4.0.5",
@@ -35,6 +37,7 @@
 	"dependencies": {
 		"@supabase/auth-helpers-sveltekit": "^0.10.7",
 		"@supabase/supabase-js": "^2.38.5",
+		"svelte-bricks": "^0.2.1",
 		"svelte-feather-icons": "^4.0.1"
 	}
 }

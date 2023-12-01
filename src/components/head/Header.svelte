@@ -68,7 +68,7 @@
   ];
 </script>
 
-<Navbar>
+<Navbar color="base">
   <NavBrand href="/">
     <img src={logo} class="mr-3 h-6 sm:h-9" alt="impressd Logo" />
   </NavBrand>
@@ -76,23 +76,23 @@
     <DarkMode class="mx-4" />
 
     {#if !session}
-    <Button size="sm">Sign up</Button>
+      <Button size="sm">Sign up</Button>
     {:else}
-    <Avatar
-    id="user-drop"
-    src={profilePicture}
-    class="cursor-pointer"
-    dot={{ color: "green" }}
-    />
-    <Dropdown triggeredBy="#user-drop">
-      <DropdownHeader>
-        <span class="block text-sm">Bonnie Green</span>
-        <span class="block truncate text-sm font-medium"
-        >name@flowbite.com</span
-        >
-      </DropdownHeader>
-      <DropdownItem>Dashboard</DropdownItem>
-      <DropdownItem>Settings</DropdownItem>
+      <Avatar
+        id="user-drop"
+        src={profilePicture}
+        class="cursor-pointer"
+        dot={{ color: "green" }}
+      />
+      <Dropdown triggeredBy="#user-drop">
+        <DropdownHeader>
+          <span class="block text-sm">Bonnie Green</span>
+          <span class="block truncate text-sm font-medium"
+            >name@flowbite.com</span
+          >
+        </DropdownHeader>
+        <DropdownItem>Dashboard</DropdownItem>
+        <DropdownItem>Settings</DropdownItem>
         <DropdownItem>Earnings</DropdownItem>
         <DropdownItem on:click={handleSignOut} slot="footer"
           >Sign out</DropdownItem

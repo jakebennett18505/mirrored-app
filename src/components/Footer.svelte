@@ -17,7 +17,7 @@
   import logo from "$lib/images/logo.png";
 </script>
 
-<Footer footerType="socialmedia">
+<Footer class="bg-base" footerType="socialmedia">
   <div class="mx-auto max-w-screen-xl text-center">
     <FooterBrand
       href="/"

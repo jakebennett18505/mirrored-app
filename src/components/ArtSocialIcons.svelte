@@ -37,7 +37,7 @@
         background-color: var(--neutral-10);
     }
 
-    @media (min-width: 45em) {
+    @media (min-width: 768px) {
         .wrapper {
             flex-direction: column;
             justify-content: flex-start;

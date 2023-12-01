@@ -10,12 +10,16 @@
 
 <!-- Artwork image section -->
 <section class="section">
-  <div class="container" data-type="narrow">
-    <div class="grid">
-      <div class="image-carousel">
+  <div class="lg:max-w-[1000px] container">
+    <div class="flex flex-col gap-8 justify-between max-h-[600px] md:flex-row">
+      <div class="hidden max-h-[600px] overflow-y-scroll no-scrollbar md:block">
         <ArtGallery {artwork} />
       </div>
-      <img class="artwork-image" src={artwork.images[0]} alt="Artwork" />
+      <img
+        class="border w-full md:max-h-[600px] object-contain"
+        src={artwork.images[0]}
+        alt="Artwork"
+      />
       <ArtSocialIcons />
     </div>
   </div>
@@ -71,13 +75,13 @@
 
 <style>
   /* Styles for image section */
-  .grid {
+  /* .art-grid {
     display: flex;
     gap: 2rem;
     justify-content: space-between;
     max-height: 600px;
     flex-direction: column;
-  }
+  } */
 
   .image-carousel {
     overflow-y: scroll;
@@ -88,12 +92,6 @@
 
   .image-carousel::-webkit-scrollbar {
     display: none;
-  }
-
-  .artwork-image {
-    flex: 1;
-    object-fit: contain;
-    max-height: 400px;
   }
 
   /* Styles for information section */
@@ -112,9 +110,9 @@
     min-width: 65%;
   }
 
-  @media (min-width: 45em) {
-    /* Apply styles for screens wider than 45em (720px) */
-    .grid {
+  /* @media (min-width: 45em) { */
+  /* Apply styles for screens wider than 45em (720px) */
+  /* .grid {
       flex-direction: row;
     }
 
@@ -123,7 +121,7 @@
     }
 
     .artwork-image {
-      max-height: 100%;
+      max-width: 100%;
     }
-  }
+  } */
 </style>

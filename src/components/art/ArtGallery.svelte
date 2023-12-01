@@ -14,7 +14,7 @@
 	.wrapper {
 		display: grid;
 		grid-auto-rows: 100px;
-		width: 100px;
+		min-width: 100px;
 		gap: 16px;
 	}
 
