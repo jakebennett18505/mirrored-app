@@ -14,7 +14,7 @@
     DarkMode,
   } from "flowbite-svelte";
   import { ChevronDownOutline } from "flowbite-svelte-icons";
-  import logo from "$lib/images/logo.png";
+  import Logo from "/src/components/Logo.svelte";
   import profilePicture from "$lib/images/profile-picture-3.webp";
   import { page } from "$app/stores";
 
@@ -70,7 +70,7 @@
 
 <Navbar color="base">
   <NavBrand href="/">
-    <img src={logo} class="mr-3 h-6 sm:h-9" alt="impressd Logo" />
+    <Logo />
   </NavBrand>
   <div class="flex md:order-2">
     <DarkMode class="mx-4" />

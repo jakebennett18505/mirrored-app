@@ -25,7 +25,6 @@
 		"flowbite-svelte-icons": "^0.4.5",
 		"flowbite-typography": "^1.0.3",
 		"postcss": "^8.4.31",
-		"postcss-dark-theme-class": "^1.1.0",
 		"prettier": "^3.0.0",
 		"prettier-plugin-svelte": "^3.0.0",
 		"svelte": "^4.0.5",

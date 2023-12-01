@@ -12,95 +12,62 @@
       url("/fonts/OPTIMA.woff") format("woff");
   }
 
-:root {
-  --text-color: #000000;
-  --logo-color: #407FA1;
-
-}
-
   html {
     font-family: "Roboto", system-ui, sans-serif;
-    color: var(--text-color);
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    --text-color: white
-  }
+h1, h2, h3, h4, h5 {
+  line-height: 120%;
 }
 
-p.logo {
-  font-family: 'Optima', sans-serif;
-  letter-spacing: 2px;
-  font-size: 2rem;
-  color: var(--logo-color);
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+h4, h5, p {
+  font-weight: 300;
 }
 
 h1 {
   font-size: 48px;
-  font-weight: 500;
-  line-height: 120%;
 }
 
 h2 {
   font-size: 40px;
-  font-weight: 500;
-  line-height: 120%;
 }
 
 h3 {
   font-size: 36px;
-  font-weight: 500;
-  line-height: 120%;
 }
 
 h4 {
   font-size: 32px;
-  font-weight: 400;
-  line-height: 120%;
 }
 
 h5 {
   font-size: 28px;
-  font-weight: 400;
-  line-height: 120%;
-}
-
-p {
-  line-height: 150%;
-  font-weight: 300;
 }
 
 @media (min-width: 1024px) {
   h1 {
     font-size: 80px;
-    line-height: 120%;
   }
 
   h2 {
     font-size: 56px;
-    line-height: 120%;
   }
 
   h3 {
     font-size: 44px;
-    line-height: 120%;
   }
 
   h4 {
     font-size: 36px;
-    line-height: 120%;
   }
 
   h5 {
     font-size: 32px;
-    line-height: 120%;
-  }
-
-  p {
-    line-height: 150%;
-    font-weight: 300;
   }
 }
 

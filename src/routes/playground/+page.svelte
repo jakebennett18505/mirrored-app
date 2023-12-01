@@ -3,7 +3,6 @@
 
 <div class="section">
   <div class="container flex flex-col gap-4">
-    <p class="logo">impressd.</p>
     <h1>This is a h1 tag</h1>
     <h2>This is a h2 tag</h2>
     <h3>This is a h3 tag</h3>
