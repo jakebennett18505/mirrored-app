@@ -4,7 +4,7 @@
   import { Spinner } from "flowbite-svelte";
 
   //Start of Infinite Scroll
-  import InfiniteScroll from "/src/components/art/masonGrid/infiniteScroll.svelte";
+  import InfiniteScroll from "./InfiniteScroll.svelte";
   let skip = 0;
   let limit = 10;
   let increment = 10;
