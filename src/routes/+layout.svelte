@@ -4,8 +4,16 @@
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
   import "/src/app.css";
+  import { page } from "$app/stores";
+
+  let currentRoute = $page.route.id;
+  console.log(currentRoute);
 
   export let data;
+
+  const smallFooterRoutes = ["/auth/login", "/auth/register"];
+
+  console.log(smallFooterRoutes.includes(currentRoute));
 
   //Supabase auth logic
   let { supabase, session } = data;
@@ -28,4 +36,4 @@
 <main>
   <slot />
 </main>
-<Footer />
+<Footer smallFooter={smallFooterRoutes.includes(currentRoute)} />

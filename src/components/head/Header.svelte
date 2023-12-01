@@ -73,10 +73,8 @@
     <Logo />
   </NavBrand>
   <div class="flex md:order-2">
-    <DarkMode class="mx-4" />
-
     {#if !session}
-      <Button size="sm">Sign up</Button>
+      <Button href="/auth/register" size="sm">Sign up</Button>
     {:else}
       <Avatar
         id="user-drop"

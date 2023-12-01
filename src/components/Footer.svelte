@@ -1,57 +1,82 @@
 <script>
-  import { Section } from "flowbite-svelte-blocks";
-  import {
-    FacebookSolid,
-    GithubSolid,
-    LinkedinSolid,
-  } from "flowbite-svelte-icons";
+  import { InstagramIcon } from "svelte-feather-icons";
   import {
     Footer,
-    FooterBrand,
+    DarkMode,
     FooterLinkGroup,
     FooterLink,
     FooterCopyright,
-    FooterIcon,
   } from "flowbite-svelte";
-
   import Logo from "/src/components/Logo.svelte";
+
+  export let smallFooter = false;
+  const footerLinks = [
+    {
+      name: "About",
+      link: "/about",
+    },
+    {
+      name: "FAQs",
+      link: "/faq",
+    },
+    {
+      name: "Become a location",
+      link: "/for-locations",
+    },
+    {
+      name: "Privacy Policy",
+      link: "/privacy",
+    },
+    {
+      name: "Exhibition Policy",
+      link: "/exhibition",
+    },
+    {
+      name: "imprint",
+      link: "/imprint",
+    },
+  ];
 </script>
 
-<Footer class="bg-base" footerType="socialmedia">
-  <div class="mx-auto max-w-screen-xl text-center">
-    <Logo />
-    <p class="my-6 text-gray-500 dark:text-gray-400">
-      Open-source library of over 400+ web components and interactive elements
-      built for better web.
-    </p>
+{#if smallFooter}
+  <Footer class="flex items-center p-2 flex-col lg:justify-between md:flex-row">
+    <FooterCopyright href="/" by="impressd" />
     <FooterLinkGroup
-      ulClass="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white"
+      ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
     >
-      <FooterLink liClass="" aClass="mr-4 hover:underline md:mr-6" href="/"
-        >About</FooterLink
-      >
-      <FooterLink liClass="" aClass="mr-4 hover:underline md:mr-6" href="/"
-        >Premium</FooterLink
-      >
-      <FooterLink liClass="" aClass="mr-4 hover:underline md:mr-6" href="/"
-        >Campaigns</FooterLink
-      >
-      <FooterLink liClass="" aClass="mr-4 hover:underline md:mr-6" href="/"
-        >Blog</FooterLink
-      >
-      <FooterLink liClass="" aClass="mr-4 hover:underline md:mr-6" href="/"
-        >Affiliate Program</FooterLink
-      >
-      <FooterLink liClass="" aClass="mr-4 hover:underline md:mr-6" href="/"
-        >FAQs</FooterLink
-      >
-      <FooterLink liClass="" aClass="mr-4 hover:underline md:mr-6" href="/"
-        >Contact</FooterLink
-      >
+      {#each footerLinks as link}
+        <FooterLink href={link.link}>{link.name}</FooterLink>
+      {/each}
+      <DarkMode size="md" />
     </FooterLinkGroup>
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-      >© 2021-2023 <a href="/" class="hover:underline">impressd</a>. All Rights
-      Reserved.</span
-    >
-  </div>
-</Footer>
+  </Footer>
+{:else}
+  <Footer class="bg-inherit" footerType="socialmedia">
+    <div class="mx-auto max-w-screen-xl text-center">
+      <Logo />
+      <FooterLinkGroup
+        ulClass="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white"
+      >
+        {#each footerLinks as link}
+          <FooterLink
+            liClass=""
+            aClass="mr-4 hover:underline md:mr-6"
+            href={link.link}>{link.name}</FooterLink
+          >
+        {/each}
+      </FooterLinkGroup>
+    </div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-2" />
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <FooterCopyright href="/" by="impressd" />
+      <div class="flex mt-4 items-center space-x-2 sm:justify-center sm:mt-0">
+        <a target="_blank" href="https://www.instagram.com/impressd.de/">
+          <InstagramIcon
+            class="w-6 h-6 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
+          />
+        </a>
+        <DarkMode size="md" />
+      </div>
+    </div>
+  </Footer>
+{/if}
