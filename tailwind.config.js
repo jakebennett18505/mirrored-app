@@ -6,6 +6,21 @@ export default {
     "./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}",
     "./node_modules/flowbite-svelte-blocks/**/*.{html,js,svelte,ts}",
   ],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          "primary": "#407FA1",
+          "secondary": "#001F5C",
+          "accent": "#FF6A00",
+          "neutral": "#000000",
+          "base-100": "#ffffff",
+        },
+      },
+      "dark",
+      "cupcake",
+    ],
+  },
   theme: {
     screens: {
       sm: "640px",
@@ -42,8 +57,9 @@ export default {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
     require("flowbite/plugin"),
     require("flowbite-typography"),
-    require("@tailwindcss/typography"),
   ],
 };

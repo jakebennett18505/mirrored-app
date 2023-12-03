@@ -1,5 +1,5 @@
 <script>
-  import Header from "/src/components/head/Header.svelte";
+  import Header from "../components/head/Header.svelte";
   import Footer from "/src/components/Footer.svelte";
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
@@ -7,13 +7,10 @@
   import { page } from "$app/stores";
 
   let currentRoute = $page.route.id;
-  console.log(currentRoute);
 
   export let data;
 
   const smallFooterRoutes = ["/auth/login", "/auth/register"];
-
-  console.log(smallFooterRoutes.includes(currentRoute));
 
   //Supabase auth logic
   let { supabase, session } = data;

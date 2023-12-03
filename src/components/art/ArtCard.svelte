@@ -4,8 +4,8 @@
   let isImageLoading = true;
 </script>
 
-<a href="/art/{artwork.id}">
-  <div class="rounded-md inline-block w-full my-6">
+<a class="max-w-full" href="/art/{artwork.id}">
+  <div class="rounded-md inline-block max-w-full my-6">
     {#if isImageLoading}
       <div class="image-placeholder">Loading image...</div>
     {/if}

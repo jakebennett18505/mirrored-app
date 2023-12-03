@@ -39,7 +39,7 @@
   //Start of MasonGrid
   import { fade } from "svelte/transition";
 
-  export let animate = true;
+  export let animate = false;
   export let duration = 200;
   export let gap = 32;
 
@@ -65,33 +65,20 @@
 </script>
 
 <div
-  class="flex flex-col items-center overflow-auto overscroll-none no-scrollbar"
+  class="flex flex-col items-center overflow-y-auto overscroll-none no-scrollbar"
 >
   <div
-    class="masonry container w-full gap-[32px]"
+    class="masonry container gap-[32px]"
     bind:clientWidth={masonryWidth}
     bind:clientHeight={masonryHeight}
   >
     {#each itemsToCols as col}
       <div class="col gap-[32px]">
-        {#if animate}
-          {#each col as [item, idx] (item.id)}
-            <div
-              in:fade={{ delay: 100, duration }}
-              out:fade={{ delay: 0, duration }}
-            >
-              <slot {idx} {item}>
-                <ArtCard artwork={item} />
-              </slot>
-            </div>
-          {/each}
-        {:else}
-          {#each col as [item, idx] (item.id)}
-            <slot {idx} {item}>
-              <ArtCard artwork={item} />
-            </slot>
-          {/each}
-        {/if}
+        {#each col as [item, idx] (item.id)}
+          <!-- <slot {idx} {item}> -->
+          <ArtCard artwork={item} />
+          <!-- </slot> -->
+        {/each}
       </div>
     {/each}
   </div>

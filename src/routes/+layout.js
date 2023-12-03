@@ -5,6 +5,7 @@ import {
 } from "$env/static/public";
 import { createSupabaseLoadClient } from "@supabase/auth-helpers-sveltekit";
 
+
 export const load = async ({ fetch, data, depends }) => {
   depends("supabase:auth");
 

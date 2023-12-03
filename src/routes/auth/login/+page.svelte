@@ -1,7 +1,11 @@
 <!-- // src/routes/auth/+page.svelte -->
 <script>
   import { Section, Register } from "flowbite-svelte-blocks";
-  import { Button, Checkbox, Label, Input } from "flowbite-svelte";
+  import {
+    Button,
+    Checkbox,
+    FloatingLabelInput,
+  } from "flowbite-svelte";
 
   export let data;
   let { supabase } = data;
@@ -44,31 +48,24 @@
   <Register>
     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
       <form class="flex flex-col space-y-6" action="/">
-        <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">
+        <h5 >
           Log in
-        </h3>
-        <Label class="space-y-2">
-          <span>Email</span>
-          <Input
-            required
-            placeholder="example@email.com"
-            type="email"
-            name="email"
-            id="email"
-            bind:value={email}
-          />
-        </Label>
-        <Label class="space-y-2">
-          <span>Password</span>
-          <Input
-            required
-            type="password"
-            name="password"
-            id="password"
-            bind:value={password}
-            placeholder="•••••••••"
-          />
-        </Label>
+        </h5>
+        <FloatingLabelInput
+          required
+          type="email"
+          name="email"
+          id="email"
+          bind:value={email}>Email</FloatingLabelInput
+        >
+
+        <FloatingLabelInput
+          required
+          type="password"
+          name="password"
+          id="password"
+          bind:value={password}>Password</FloatingLabelInput
+        >
         <div class="flex items-start">
           <Checkbox>Remember me</Checkbox>
           <a

@@ -1,125 +1,86 @@
 <script>
-  import {
-    Navbar,
-    NavBrand,
-    NavLi,
-    NavUl,
-    NavHamburger,
-    Dropdown,
-    DropdownItem,
-    DropdownHeader,
-    DropdownDivider,
-    Button,
-    Avatar,
-    DarkMode,
-  } from "flowbite-svelte";
-  import { ChevronDownOutline } from "flowbite-svelte-icons";
-  import Logo from "/src/components/Logo.svelte";
-  import profilePicture from "$lib/images/profile-picture-3.webp";
-  import { page } from "$app/stores";
+  import Logo from "../Logo.svelte";
+  import NavItem from "./NavItem.svelte";
+  import NavItems from "./NavItems.svelte";
+  import { MenuIcon, XIcon } from "svelte-feather-icons";
+  import { beforeNavigate } from "$app/navigation";
 
-  // Session handling
-  const { supabase, session } = $page.data;
+  beforeNavigate(() => (mobileMenuShow = false));
 
-  $: activeUrl = $page.url.pathname;
-  async function handleSignOut() {
-    try {
-      // Call the signOut method to sign the user out
-      const { error } = await supabase.auth.signOut();
+  let mobileMenu;
+  let mobileMenuShow = false;
 
-      if (error) {
-        // Handle any errors that may occur during sign-out
-        console.error("Sign-out error:", error.message);
-      } else {
-        // Redirect to the homepage or any desired page after successful sign-out
-        window.location.href = "/"; // You can change the URL as needed
-      }
-    } catch (error) {
-      console.error("Error:", error.message);
-    }
+  function toggleMobileMenu() {
+    mobileMenuShow = !mobileMenuShow;
   }
-
-  //Nav items
-  export const navList = [
-    {
-      name: "Locations",
-      link: "/locations",
-      subLinks: [
-        { name: "All", link: "/locations" },
-        { name: "Berlin", link: "/berlin" },
-        { name: "London", link: "/london" },
-        { name: "Paris", link: "/paris" },
-        { name: "Amsterdam", link: "/amsterdam" },
-      ],
-    },
-    {
-      name: "Gallery",
-      link: "/art",
-    },
-    {
-      name: "Artists",
-      link: "/artist/1",
-      subLinks: [
-        { name: "All", link: "/artist/1" },
-        { name: "New", link: "/artist/new" },
-        { name: "Exhibiting", link: "/artist/exhibiting" },
-      ],
-    },
-  ];
 </script>
 
-<Navbar color="base">
-  <NavBrand href="/">
-    <Logo />
-  </NavBrand>
-  <div class="flex md:order-2">
-    {#if !session}
-      <Button href="/auth/register" size="sm">Sign up</Button>
-    {:else}
-      <Avatar
-        id="user-drop"
-        src={profilePicture}
-        class="cursor-pointer"
-        dot={{ color: "green" }}
-      />
-      <Dropdown triggeredBy="#user-drop">
-        <DropdownHeader>
-          <span class="block text-sm">Bonnie Green</span>
-          <span class="block truncate text-sm font-medium"
-            >name@flowbite.com</span
+<header class="text-neutral dark:text-base-100">
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+    aria-label="Global"
+  >
+    <div class="flex lg:flex-1">
+      <Logo />
+    </div>
+    <div class="flex lg:hidden">
+      <button
+        on:click={toggleMobileMenu}
+        type="button"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+      >
+        <span class="sr-only">Open main menu</span>
+        <MenuIcon strokeWidth="1" />
+      </button>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12">
+      <NavItems />
+    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="/auth/register" class="text-sm font-light leading-6 text-inherit"
+        >Sign up <span aria-hidden="true">&rarr;</span></a
+      >
+    </div>
+  </nav>
+  <!-- Mobile menu, show/hide based on menu open state. -->
+  {#if mobileMenuShow}
+    <div
+      bind:this={mobileMenu}
+      class="lg:hidden bg-gray-800"
+      role="dialog"
+      aria-modal="true"
+    >
+      <!-- Background backdrop, show/hide based on slide-over state. -->
+      <div class="fixed inset-0 z-10"></div>
+      <div
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-base-100 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-inherit dark:ring-gray-50/10"
+      >
+        <div class="flex items-center justify-between">
+          <Logo />
+          <button
+            on:click={toggleMobileMenu}
+            type="button"
+            class="-m-2.5 rounded-md p-2.5 text-gray-700"
           >
-        </DropdownHeader>
-        <DropdownItem>Dashboard</DropdownItem>
-        <DropdownItem>Settings</DropdownItem>
-        <DropdownItem>Earnings</DropdownItem>
-        <DropdownItem on:click={handleSignOut} slot="footer"
-          >Sign out</DropdownItem
-        >
-      </Dropdown>
-    {/if}
-    <NavHamburger />
-  </div>
-  <NavUl>
-    {#each navList as nav}
-      {#if !nav.subLinks}
-        <NavLi
-          class="font-light text-lg cursor-pointer md:text-base"
-          href={nav.link}>{nav.name}</NavLi
-        >
-      {:else}
-        <NavLi class="font-light text-lg cursor-pointer md:text-base">
-          {nav.name}<ChevronDownOutline
-            class="w-3 h-3 ml-2 text-primary-800 dark:text-white inline"
-          />
-        </NavLi>
-        <Dropdown class="w-44 z-20">
-          {#each nav.subLinks as sublink}
-            <DropdownItem class="font-light text-base" href={sublink.link}
-              >{sublink.name}</DropdownItem
-            >
-          {/each}
-        </Dropdown>
-      {/if}
-    {/each}
-  </NavUl>
-</Navbar>
+            <span class="sr-only">Close menu</span>
+            <XIcon strokeWidth="1" />
+          </button>
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <NavItems />
+            </div>
+            <div class="py-6">
+              <a
+                href="/auth/register"
+                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-light leading-7 text-inherit hover:bg-gray-50 dark:hover:bg-gray-700"
+                >Sign up</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {/if}
+</header>
