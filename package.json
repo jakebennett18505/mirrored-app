@@ -38,6 +38,7 @@
     "@supabase/auth-helpers-sveltekit": "^0.10.7",
     "@supabase/supabase-js": "^2.38.5",
     "svelte-bricks": "^0.2.1",
-    "svelte-feather-icons": "^4.0.1"
+    "svelte-feather-icons": "^4.0.1",
+    "theme-change": "^2.5.0"
   }
 }

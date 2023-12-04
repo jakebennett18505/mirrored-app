@@ -6,11 +6,7 @@
   import "/src/app.css";
   import { page } from "$app/stores";
 
-  let currentRoute = $page.route.id;
-
   export let data;
-
-  const smallFooterRoutes = ["/auth/login", "/auth/register"];
 
   //Supabase auth logic
   let { supabase, session } = data;
@@ -33,4 +29,4 @@
 <main>
   <slot />
 </main>
-<Footer smallFooter={smallFooterRoutes.includes(currentRoute)} />
+<Footer />

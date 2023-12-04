@@ -1,15 +1,8 @@
 <script>
   import { InstagramIcon } from "svelte-feather-icons";
-  import {
-    Footer,
-    DarkMode,
-    FooterLinkGroup,
-    FooterLink,
-    FooterCopyright,
-  } from "flowbite-svelte";
   import Logo from "/src/components/Logo.svelte";
+  import ThemeToggle from "./ThemeToggle.svelte";
 
-  export let smallFooter = false;
   const footerLinks = [
     {
       name: "About",
@@ -38,45 +31,40 @@
   ];
 </script>
 
-{#if smallFooter}
-  <Footer class="flex items-center p-2 flex-col lg:justify-between md:flex-row">
-    <FooterCopyright href="/" by="impressd" />
-    <FooterLinkGroup
-      ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
-    >
+<svelte:head>
+  <script>
+    try {
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("theme")
+      );
+    } catch (e) {}
+  </script>
+</svelte:head>
+
+<footer class="footer footer-center p-10 rounded">
+  <div class="mx-auto max-w-screen-xl text-center">
+    <Logo />
+    <nav class="justify-center flex flex-wrap gap-4">
       {#each footerLinks as link}
-        <FooterLink href={link.link}>{link.name}</FooterLink>
+        <a class="link link-hover" href={link.link}>{link.name}</a>
       {/each}
-      <DarkMode size="md" />
-    </FooterLinkGroup>
-  </Footer>
-{:else}
-  <Footer class="bg-inherit" footerType="socialmedia">
-    <div class="mx-auto max-w-screen-xl text-center">
-      <Logo />
-      <FooterLinkGroup
-        ulClass="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white"
+    </nav>
+  </div>
+    <div class="border-t pt-4 w-full sm:flex sm:items-center sm:justify-between">
+      <span
+        class="block text-sm  sm:text-cente"
       >
-        {#each footerLinks as link}
-          <FooterLink
-            liClass=""
-            aClass="mr-4 hover:underline md:mr-6"
-            href={link.link}>{link.name}</FooterLink
-          >
-        {/each}
-      </FooterLinkGroup>
-    </div>
-    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-2" />
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <FooterCopyright href="/" by="impressd" />
+        &copy; 2023 <a href="/" class="hover:underline"> impressd</a> All Rights
+        Reserved.
+      </span>
       <div class="flex mt-4 items-center space-x-2 sm:justify-center sm:mt-0">
         <a target="_blank" href="https://www.instagram.com/impressd.de/">
           <InstagramIcon
-            class="w-6 h-6 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
+            class="w-6 h-6 text-gray-500 dark:text-gray-500 hover:text-neutral"
           />
         </a>
-        <DarkMode size="md" />
+        <ThemeToggle />
       </div>
     </div>
-  </Footer>
-{/if}
+</footer>

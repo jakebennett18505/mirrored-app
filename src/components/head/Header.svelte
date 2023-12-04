@@ -1,9 +1,12 @@
 <script>
   import Logo from "../Logo.svelte";
-  import NavItem from "./NavItem.svelte";
   import NavItems from "./NavItems.svelte";
   import { MenuIcon, XIcon } from "svelte-feather-icons";
   import { beforeNavigate } from "$app/navigation";
+  import { page } from "$app/stores";
+  import ProfileLinks from "./ProfileLinks.svelte";
+
+  const { session } = $page;
 
   beforeNavigate(() => (mobileMenuShow = false));
 
@@ -15,9 +18,9 @@
   }
 </script>
 
-<header class="text-neutral dark:text-base-100">
+<header class="container">
   <nav
-    class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+    class="mx-auto flex max-w-7xl items-center justify-between py-4"
     aria-label="Global"
   >
     <div class="flex lg:flex-1">
@@ -27,7 +30,7 @@
       <button
         on:click={toggleMobileMenu}
         type="button"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
       >
         <span class="sr-only">Open main menu</span>
         <MenuIcon strokeWidth="1" />
@@ -36,47 +39,43 @@
     <div class="hidden lg:flex lg:gap-x-12">
       <NavItems />
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="/auth/register" class="text-sm font-light leading-6 text-inherit"
-        >Sign up <span aria-hidden="true">&rarr;</span></a
-      >
+    <div class="hidden static lg:flex lg:flex-1 lg:justify-end">
+      {#if !session}
+        <ProfileLinks />
+      {/if}
     </div>
   </nav>
   <!-- Mobile menu, show/hide based on menu open state. -->
   {#if mobileMenuShow}
     <div
       bind:this={mobileMenu}
-      class="lg:hidden bg-gray-800"
+      class="lg:hidden"
       role="dialog"
       aria-modal="true"
     >
       <!-- Background backdrop, show/hide based on slide-over state. -->
       <div class="fixed inset-0 z-10"></div>
       <div
-        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-base-100 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-inherit dark:ring-gray-50/10"
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-base-100 p-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-inherit dark:ring-gray-50/10"
       >
         <div class="flex items-center justify-between">
           <Logo />
           <button
             on:click={toggleMobileMenu}
             type="button"
-            class="-m-2.5 rounded-md p-2.5 text-gray-700"
+            class="-m-2.5 rounded-md p-2.5"
           >
             <span class="sr-only">Close menu</span>
             <XIcon strokeWidth="1" />
           </button>
         </div>
         <div class="mt-6 flow-root">
-          <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="-my-6 divide-y-2 divide-gray-500/10">
             <div class="space-y-2 py-6">
               <NavItems />
             </div>
-            <div class="py-6">
-              <a
-                href="/auth/register"
-                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-light leading-7 text-inherit hover:bg-gray-50 dark:hover:bg-gray-700"
-                >Sign up</a
-              >
+            <div class="py-6 lg:flex lg:flex-1 lg:justify-end">
+              <ProfileLinks />
             </div>
           </div>
         </div>

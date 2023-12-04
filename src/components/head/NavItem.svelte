@@ -6,7 +6,9 @@
   let container;
 
   function onWindowClick(e) {
-    if (container.contains(e.target) == false) show = false;
+    if (show) {
+      if (container.contains(e.target) == false) show = false;
+    }
   }
 </script>
 
@@ -16,13 +18,13 @@
   <div class="static -mx-3 lg:mx-0 lg:relative" bind:this={container}>
     <button
       type="button"
-      class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-light leading-7 text-inherit lg:gap-x-1 lg:text-sm lg:leading-6 lg:p-0 dark:hover:bg-gray-700 dark:lg:hover:bg-transparent"
+      class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-2xl font-light leading-7 text-inherit lg:gap-x-1 lg:text-sm lg:leading-6 lg:p-0 dark:hover:bg-neutral/5"
       aria-expanded="false"
       on:click={() => (show = !show)}
     >
       {navItem.name}
       <ChevronDownOutline
-        class="w-2 h-2 ml-2 text-primary-800 dark:text-white inline"
+        class="w-4 h-4 ml-2 text-primary-800 dark:text-white lg:w-2 lg:h-2 inline"
       />
     </button>
 
@@ -33,7 +35,7 @@
         {#each navItem.subLinks as subLink}
           <a
             href={subLink.link}
-            class=" block rounded-lg py-2 pl-6 pr-3 text-sm font-light leading-7 text-inheri lg:p-2 lg:leading-6 lg:hover:bg-gray-50 dark:hover:bg-gray-700"
+            class=" block rounded-lg py-2 pl-6 pr-3 text-base font-light leading-7 text-inheri lg:px-2 lg:py-1 lg:text-sm lg:leading-6 lg:hover:bg-neutral/5"
           >
             {subLink.name}
           </a>
@@ -45,7 +47,7 @@
   <a
     href={navItem.link}
     class="
-  -mx-3 block rounded-lg px-3 py-2 text-base font-light leading-7 text-inheri
+  -mx-3 block rounded-lg px-3 py-2 text-2xl font-light leading-7 text-inheri
   lg:text-sm lg:leading-6 lg:p-0
   ">{navItem.name}</a
   >
