@@ -1,6 +1,6 @@
 <script>
-  import Header from "../components/head/Header.svelte";
-  import Footer from "/src/components/Footer.svelte";
+  import Header from "../components/header/Header.svelte";
+  import Footer from "/src/components/footer/Footer.svelte";
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
   import "/src/app.css";

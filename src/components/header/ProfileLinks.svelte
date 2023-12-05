@@ -1,5 +1,6 @@
 <script>
   import { page } from "$app/stores";
+  import { signOut } from "/src/routes/auth/auth.js";
 
   const { session, supabase } = $page.data;
   const profileLinks = ["Profile", "Settings"];
@@ -9,20 +10,7 @@
   $: show = innerWidth < 1024;
 
   async function handleSignOut() {
-    try {
-      // Call the signOut method to sign the user out
-      const { error } = await supabase.auth.signOut();
-
-      if (error) {
-        // Handle any errors that may occur during sign-out
-        console.error("Sign-out error:", error.message);
-      } else {
-        // Redirect to the homepage or any desired page after successful sign-out
-        window.location.href = "/"; // You can change the URL as needed
-      }
-    } catch (error) {
-      console.error("Error:", error.message);
-    }
+    await signOut(supabase);
   }
 
   function toggleMenu() {
@@ -42,7 +30,7 @@
 
 {#if !session}
   <a
-    href="/auth/register"
+    href="/auth/signup"
     class="-mx-3 block rounded-lg px-3 py-2.5 text-2xl font-light leading-7 text-inherit lg:text-sm lg:leading-6 lg:hover:bg-neutral/5 dark:hover:bg-gray-700"
     >Sign up <span class="hidden lg:inline" aria-hidden="true">&rarr;</span></a
   >
