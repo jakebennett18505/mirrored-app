@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import ArtCard from "/src/components/art/ArtCard.svelte";
-  import { Spinner } from "flowbite-svelte";
 
   //Start of Infinite Scroll
   import InfiniteScroll from "./InfiniteScroll.svelte";
@@ -18,7 +17,7 @@
     isLoading = true;
 
     const response = await fetch(
-      `https://dummyjson.com/products?skip=${skip}&limit=${limit}`
+      `https://dummyjson.com/products?skip=${skip}&limit=${limit}`,
     );
     const resData = await response.json();
     newBatch = resData.products;
@@ -52,26 +51,24 @@
 
   $: nCols = Math.min(
     items.length,
-    Math.floor(masonryWidth / (minColWidth + gap)) || 1
+    Math.floor(masonryWidth / (minColWidth + gap)) || 1,
   );
   $: itemsToCols = items.reduce(
     (cols, item, idx) => {
       cols[idx % cols.length].push([item, idx]);
       return cols;
     },
-    Array(nCols).fill(null).map(() => []) // prettier-ignore
+    Array(nCols).fill(null).map(() => []), // prettier-ignore
   );
   //End of MasonGrid
 </script>
 
 <div
-  class="flex flex-col items-center overflow-y-auto overscroll-none no-scrollbar"
->
+  class="flex flex-col items-center overflow-y-auto overscroll-none no-scrollbar">
   <div
     class="masonry container gap-[32px]"
     bind:clientWidth={masonryWidth}
-    bind:clientHeight={masonryHeight}
-  >
+    bind:clientHeight={masonryHeight}>
     {#each itemsToCols as col}
       <div class="col gap-[32px]">
         {#each col as [item, idx] (item.id)}
@@ -87,14 +84,12 @@
     threshold={300}
     on:loadMore={() => {
       fetchData();
-    }}
-  />
+    }} />
 </div>
 {#if isLoading}
   <div
-    class="z-50 absolute flex justify-center items-center bottom-0 h-60 left-0 right-0 bg-gradient-to-t from-black/20"
-  >
-    <Spinner />
+    class="z-50 absolute flex justify-center items-center bottom-0 h-60 left-0 right-0 bg-gradient-to-t from-black/20">
+    <span class="loading loading-spinner loading-lg text-accent"></span>
   </div>
 {/if}
 

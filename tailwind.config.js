@@ -1,11 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
-  content: [
-    "./src/**/*.{html,js,svelte,ts}",
-    "./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}",
-    "./node_modules/flowbite-svelte-blocks/**/*.{html,js,svelte,ts}",
-  ],
+  content: ["./src/**/*.{html,js,svelte,ts}"],
   daisyui: {
     themes: [
       {
@@ -50,10 +46,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("daisyui"),
-    require("flowbite/plugin"),
-    require("flowbite-typography"),
-  ],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
