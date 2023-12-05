@@ -14,7 +14,6 @@
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/enhanced-img": "^0.1.5",
     "@sveltejs/kit": "^1.27.4",
-    "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.16",
     "daisyui": "^4.4.17",
     "eslint": "^8.28.0",
@@ -30,8 +29,8 @@
   },
   "type": "module",
   "dependencies": {
-    "@supabase/auth-helpers-sveltekit": "^0.10.7",
-    "@supabase/supabase-js": "^2.38.5",
+    "@supabase/ssr": "^0.0.10",
+    "@supabase/supabase-js": "^2.39.0",
     "svelte-bricks": "^0.2.1",
     "svelte-feather-icons": "^4.0.1",
     "tailwind-merge": "^2.1.0",

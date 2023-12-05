@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
+  darkMode: ["class", '[data-theme="dark"]'],
   content: ["./src/**/*.{html,js,svelte,ts}"],
   daisyui: {
     themes: [
@@ -46,5 +46,5 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require("daisyui")],
 };
