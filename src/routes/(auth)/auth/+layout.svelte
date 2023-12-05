@@ -1,9 +1,8 @@
 <script>
-  import Header from "../../components/header/Header.svelte";
-  import Footer from "/src/components/footer/Footer.svelte";
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
   import "/src/app.css";
+  import ThemeToggle from "../../../components/footer/ThemeToggle.svelte";
 
   export let data;
 
@@ -24,8 +23,9 @@
   });
 </script>
 
-<Header />
-<main class="bg-primary/10">
+<main class="dark:bg-primary">
+  <div class="absolute z-10 right-4 top-4">
+    <ThemeToggle />
+  </div>
   <slot />
 </main>
-<Footer />

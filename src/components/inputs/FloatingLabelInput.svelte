@@ -61,7 +61,7 @@
 
   const inputClasses = {
     outlined:
-      "block w-full text-sm bg-transparent rounded-lg border-1 appearance-none  focus:outline-none focus:ring-0 peer",
+      "block w-full text-sm bg-transparent rounded-lg border appearance-none  focus:outline-none focus:ring-0 peer",
     standard:
       "block w-full text-sm bg-transparent border-0 border-b-2 appearance-none dark:text-white  focus:outline-none focus:ring-0 peer",
   };
