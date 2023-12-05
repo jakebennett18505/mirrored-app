@@ -1,7 +1,7 @@
 <script>
   // Import necessary components
   import ArtGallery from "/src/components/art/ArtGallery.svelte";
-  import ArtSocialIcons from "src/components/ArtSocialIcons.svelte";
+  import ArtSocialIcons from "/src/components/art/ArtSocialIcons.svelte";
 
   // Extract the 'artwork' data from the 'data' prop
   export let data;
@@ -12,7 +12,7 @@
 <section class="section">
   <div class="lg:max-w-[1000px] container">
     <div class="flex flex-col gap-8 justify-between max-h-[600px] md:flex-row">
-      <div class="hidden max-h-[600px] overflow-y-scroll no-scrollbar md:block">
+      <div class="hidden w-[120px] max-h-[600px] overflow-y-scroll no-scrollbar md:block">
         <ArtGallery {artwork} />
       </div>
       <img
