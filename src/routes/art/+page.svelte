@@ -1,16 +1,12 @@
 <script>
-	import ArtMasonGrid from '/src/components/art/ArtMasonGrid.svelte';
-	export let data;
-	const { art } = data;
+  import MasonGrid from "/src/components/art//masonGrid/AllArtMasonry.svelte";
 </script>
 
 <svelte:head>
-	<title>Art</title>
-	<meta name="description" content="A gallery of artwork" />
+  <title>Art</title>
+  <meta name="description" content="A gallery of artwork" />
 </svelte:head>
 
 <section class="section">
-	<div class="container">
-		<ArtMasonGrid {art} />
-	</div>
+  <MasonGrid />
 </section>
