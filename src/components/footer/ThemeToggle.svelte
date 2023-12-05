@@ -20,7 +20,7 @@
 </svelte:head>
 
 <label
-  class="swap swap-rotate text-gray-500 dark:text-gray-500 hover:text-neutral"
+  class="swap swap-rotate hover:text-neutral"
 >
   <!-- this hidden checkbox controls the state -->
   <input

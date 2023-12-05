@@ -24,14 +24,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 between gap-6">
           <FloatingLabelInput
             required
-            color="red"
             type="text"
             name="first-name"
             id="first-name"
             bind:value={firstName}>First name</FloatingLabelInput>
 
           <FloatingLabelInput
-            color="green"
             required
             type="text"
             name="last-name"
