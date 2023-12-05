@@ -109,9 +109,8 @@
       inputClasses[style],
       inputColorClasses[color],
       inputSizes[style][size],
-      $$props.classInput
-    )}
-  />
+      $$props.classInput,
+    )} />
 
   <label
     for={id}
@@ -119,9 +118,8 @@
       labelClasses[style],
       labelColorClasses[color],
       labelSizes[style][size],
-      $$props.classLabel
-    )}
-  >
+      $$props.classLabel,
+    )}>
     <slot />
   </label>
 </div>

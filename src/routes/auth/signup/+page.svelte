@@ -1,6 +1,7 @@
 <script>
   import FloatingLabelInput from "/src/components/inputs/FloatingLabelInput.svelte";
   import { signUp } from "../auth";
+  import Logo from "../../../components/Logo.svelte";
 
   export let data;
   let { supabase } = data;
@@ -15,7 +16,8 @@
   }
 </script>
 
-<section class="relative py-6 sm:py-10">
+<section class="relative flex flex-col items-center py-6 sm:py-10">
+  <Logo />
   <div
     class="w-full bg-base-100 sm:rounded-lg sm:shadow md:mt-0 sm:mx-auto sm:max-w-md xl:p-0">
     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -24,6 +26,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 between gap-6">
           <FloatingLabelInput
             required
+            color="red"
             type="text"
             name="first-name"
             id="first-name"

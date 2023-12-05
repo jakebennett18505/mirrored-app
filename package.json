@@ -34,6 +34,7 @@
     "@supabase/supabase-js": "^2.38.5",
     "svelte-bricks": "^0.2.1",
     "svelte-feather-icons": "^4.0.1",
+    "tailwind-merge": "^2.1.0",
     "theme-change": "^2.5.0"
   }
 }

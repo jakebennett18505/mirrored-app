@@ -4,4 +4,4 @@
   const session = $page.data.session;
 </script>
 
-<div class="container"></div>
+<div class="container">Hello </div>
