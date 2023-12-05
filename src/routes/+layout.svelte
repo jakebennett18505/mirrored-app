@@ -3,7 +3,7 @@
   import Footer from "/src/components/footer/Footer.svelte";
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
-  import "/src/app.css";
+  import "../app.css";
   import { page } from "$app/stores";
 
   export let data;
