@@ -1,7 +1,7 @@
 <script>
   // Import necessary components
-  import ArtGallery from "/src/components/art/ArtGallery.svelte";
-  import ArtSocialIcons from "/src/components/ArtSocialIcons.svelte";
+  import ArtGallery from "src/components/art/ArtGallery.svelte";
+  import ArtSocialIcons from "src/components/ArtSocialIcons.svelte";
 
   // Extract the 'artwork' data from the 'data' prop
   export let data;
@@ -18,8 +18,7 @@
       <img
         class="border w-full md:max-h-[600px] object-contain"
         src={artwork.images[0]}
-        alt="Artwork"
-      />
+        alt="Artwork" />
       <ArtSocialIcons />
     </div>
   </div>
