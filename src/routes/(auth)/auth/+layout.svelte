@@ -17,8 +17,8 @@
 
 <style>
   .auth-image {
-    background-image: url("$lib/images/auth_image_2.webp");
-    background-size: contain;
+    background-image: url("$lib/images/auth_image_1.webp");
+    background-size: cover;
     background-blend-mode: darken;
   }
 </style>

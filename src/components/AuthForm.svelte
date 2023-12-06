@@ -21,8 +21,7 @@
   }
 </script>
 
-<div
-  class="w-full bg-base-100 sm:max-w-[500px]  md:mt-0 sm:mx-auto xl:p-0">
+<div class="w-full bg-base-100 sm:max-w-[500px] md:mt-0 sm:mx-auto xl:p-0">
   <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
     {#if !login}
       <form class="flex flex-col space-y-6" action="/">
