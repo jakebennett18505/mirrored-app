@@ -1,27 +1,27 @@
 <script>
-  import { page } from "$app/stores";
-  import { signOut } from "../auth.js";
+  import { page } from "$app/stores"
+  import { signOut } from "../auth.js"
 
-  const { session, supabase } = $page.data;
-  const profileLinks = ["Profile", "Settings"];
-  let container;
-  let innerWidth;
+  const { session, supabase } = $page.data
+  const profileLinks = ["Profile", "Settings"]
+  let container
+  let innerWidth
 
-  $: show = innerWidth < 1024;
+  $: show = innerWidth < 1024
 
   async function handleSignOut() {
-    await signOut(supabase);
+    await signOut(supabase)
   }
 
   function toggleMenu() {
     if (innerWidth > 1024) {
-      show = !show;
+      show = !show
     }
   }
 
   function onWindowClick(e) {
     if (innerWidth > 1024 && show) {
-      if (container.contains(e.target) == false) show = false;
+      if (container.contains(e.target) == false) show = false
     }
   }
 </script>
@@ -31,7 +31,7 @@
 {#if !session}
   <a
     href="/auth/signup"
-    class="-mx-3 block rounded-lg px-3 py-2.5 text-2xl font-light leading-7 text-inherit lg:text-sm lg:leading-6 lg:hover:bg-neutral/5 dark:hover:bg-gray-700"
+    class="w-full gap-2 flex justify-between items-center rounded-lg p-3 text-2xl font-light leading-6 text-inherit lg:text-sm lg:w-fit hover:bg-neutral/5"
     >Sign up <span class="hidden lg:inline" aria-hidden="true">&rarr;</span></a>
 {:else}
   <div
