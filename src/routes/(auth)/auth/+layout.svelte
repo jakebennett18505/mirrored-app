@@ -1,31 +1,24 @@
 <script>
-  import { invalidate } from "$app/navigation";
-  import { onMount } from "svelte";
   import "/src/app.css";
   import ThemeToggle from "../../../components/footer/ThemeToggle.svelte";
-
-  export let data;
-
-  //Supabase auth logic
-  let { supabase, session } = data;
-  $: ({ supabase, session } = data);
-
-  onMount(() => {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, _session) => {
-      if (_session?.expires_at !== session?.expires_at) {
-        invalidate("supabase:auth");
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  });
+  import Logo from "../../../components/Logo.svelte";
 </script>
 
-<main class="dark:bg-primary">
-  <div class="absolute z-10 right-4 top-4">
+<main class="grid grid-cols-1 lg:grid-cols-2">
+  <div class="absolute z-10 left-4 top-4">
     <ThemeToggle />
   </div>
-  <slot />
+  <div class="flex flex-col items-center justify-center gap-4">
+    <Logo size="large" />
+    <slot />
+  </div>
+  <div class="auth-image bg-base-100/30 hidden lg:block"></div>
 </main>
+
+<style>
+  .auth-image {
+    background-image: url("$lib/images/auth_image_2.webp");
+    background-size: contain;
+    background-blend-mode: darken;
+  }
+</style>

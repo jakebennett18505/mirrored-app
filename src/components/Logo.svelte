@@ -1,5 +1,4 @@
 <script lang="ts">
-  export let color = "text-primary";
   export let size: "small" | "medium" | "large" = "medium";
 
   const textSizes = {
@@ -10,7 +9,7 @@
 </script>
 
 <a href="/">
-  <p class="logo {color} {textSizes[size]}">impressd.</p>
+  <p class="logo {textSizes[size]} text-primary dark:text-neutral">impressd.</p>
 </a>
 
 <style>

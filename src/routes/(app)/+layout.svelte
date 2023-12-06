@@ -25,7 +25,7 @@
 </script>
 
 <Header />
-<main class="bg-primary/10">
+<main>
   <slot />
 </main>
 <Footer />
