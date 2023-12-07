@@ -2,7 +2,8 @@
 import { supabase } from "$lib/supabaseClient"
 
 export async function load() {
-  const { data } = await supabase.from("art").select()
+  const { data, error } = await supabase.from("art").select()
+  console.log(data, error)
 
   return {
     art: data ?? [],

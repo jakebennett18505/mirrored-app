@@ -33,7 +33,7 @@
         {#each navItem.subLinks as subLink}
           <a
             href={subLink.link}
-            class=" block rounded-lg px-3 py-2 text-base font-light leading-6 lg:text-sm hover:bg-neutral/5">
+            class="block rounded-lg px-3 py-2 text-base font-light leading-6 lg:text-sm hover:bg-neutral/5">
             {subLink.name}
           </a>
         {/each}
