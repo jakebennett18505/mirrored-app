@@ -1,10 +1,8 @@
 <script>
-  import Header from "../components/header/Header.svelte";
-  import Footer from "/src/components/footer/Footer.svelte";
-  import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
-  import "../app.css";
   import { page } from "$app/stores";
+  import { invalidate } from "$app/navigation";
+  import "/src/app.css";
 
   export let data;
 
@@ -25,8 +23,4 @@
   });
 </script>
 
-<Header />
-<main>
-  <slot />
-</main>
-<Footer />
+<slot />

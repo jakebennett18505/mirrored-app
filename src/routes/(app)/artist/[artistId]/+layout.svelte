@@ -1,6 +1,6 @@
 <script>
   import { page } from "$app/stores";
-  import ArtistSocialIcons from "../../../components/ArtistSocialIcons.svelte";
+  import ArtistSocialIcons from "/src/components/ArtistSocialIcons.svelte";
 
   const { data, params } = $page;
   const { artist } = data;
@@ -25,8 +25,7 @@
       <img
         class="profile-image"
         src={artist.image}
-        alt="Profile image of ${artist.firstName}"
-      />
+        alt="Profile image of ${artist.firstName}" />
     </div>
     <div class="profile-info">
       <div class="artist-name">
@@ -53,31 +52,25 @@
       <li
         aria-current={$page.url.pathname === `/artist/${artistId}`
           ? "page"
-          : undefined}
-      >
+          : undefined}>
         <a class="subtitle-3" data-sveltekit-noscroll href="/artist/{artistId}"
-          >Home</a
-        >
+          >Home</a>
       </li>
       <li
         aria-current={$page.url.pathname.endsWith("gallery")
           ? "page"
-          : undefined}
-      >
+          : undefined}>
         <a
           class="subtitle-3"
           data-sveltekit-noscroll
-          href="/artist/{artistId}/gallery">Gallery</a
-        >
+          href="/artist/{artistId}/gallery">Gallery</a>
       </li>
       <li
-        aria-current={$page.url.pathname.endsWith("bio") ? "page" : undefined}
-      >
+        aria-current={$page.url.pathname.endsWith("bio") ? "page" : undefined}>
         <a
           class="subtitle-3"
           data-sveltekit-noscroll
-          href="/artist/{artistId}/bio">Bio</a
-        >
+          href="/artist/{artistId}/bio">Bio</a>
       </li>
     </ul>
   </div>
