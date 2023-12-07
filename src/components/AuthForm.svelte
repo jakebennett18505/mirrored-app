@@ -62,7 +62,8 @@
             checked="checked"
             class="checkbox checkbox-s" />
         </label>
-        <button class="btn btn-primary" on:click={handleSignUp}>Sign up</button>
+        <button class="btn btn-primary dark:btn-accent" on:click={handleSignUp}
+          >Sign up</button>
         <p class="text-sm font-light">
           Already have an account? <a
             href="/auth/login"
