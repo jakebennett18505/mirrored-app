@@ -8,8 +8,6 @@ export async function load({ params }) {
 		.eq('id', artId)
 		.single()
 
-	console.log(data, error)
-
 	return {
 		artwork: data ?? []
 	}

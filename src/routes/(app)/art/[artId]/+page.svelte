@@ -7,20 +7,20 @@
 	export let data
 	const { artwork } = data
 	const images = artwork.artwork_images
-
-	console.log(artwork)
 </script>
 
 <!-- Artwork image section -->
 <div class="flex flex-col">
 	<section class="py-4 max-h-fit md:py-8">
 		<div class="lg:max-w-[1000px] container">
-			<div class="flex flex-col gap-8 justify-between max-h-[600px] md:flex-row">
-				<div class="hidden w-[120px] max-h-[600px] overflow-y-scroll no-scrollbar md:block">
+			<div class="grid grid-col-1 gap-8 justify-center items-center max-h-fit md:flex-row">
+				<div
+					class="hidden max-w-full w-[120px] max-h-[600px] overflow-y-scroll no-scrollbar md:block">
 					<ArtGallery {artwork} />
 				</div>
 				<img
-					class="max-w-full max-h-[400px] md:max-h-[600px] object-contain"
+					loading="lazy"
+					class="bg-primary/20 w-full h-[400px] md:h-[600px] object-contain"
 					src={images[0].imagePath}
 					alt="Artwork" />
 				<ArtSocialIcons />
@@ -77,6 +77,7 @@
 		</div>
 	</section>
 </div>
+``
 
 <style>
 	th {
@@ -84,4 +85,3 @@
 		padding-right: 5px;
 	}
 </style>
-``
