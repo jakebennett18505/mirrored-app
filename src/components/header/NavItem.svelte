@@ -18,7 +18,7 @@
   <div class="static lg:relative" bind:this={container}>
     <button
       type="button"
-      class="w-full flex justify-between items-center rounded-lg p-3 text-2xl font-light leading-6 text-inherit lg:text-sm hover:bg-neutral/5"
+      class="w-full flex justify-between items-center rounded-lg p-3 text-xl font-light leading-6 text-inherit lg:text-sm hover:bg-neutral/5"
       aria-expanded="false"
       on:click={() => (show = !show)}>
       {navItem.name}
@@ -44,6 +44,6 @@
   <a
     href={navItem.link}
     class="
-     rounded-lg p-3 text-2xl font-light leading-6 text-inherit lg:text-sm hover:bg-neutral/5"
+     rounded-lg p-3 text-xl font-light leading-6 text-inherit lg:text-sm hover:bg-neutral/5"
     >{navItem.name}</a>
 {/if}

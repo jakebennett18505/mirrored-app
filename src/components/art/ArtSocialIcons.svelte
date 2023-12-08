@@ -1,49 +1,18 @@
 <script>
-  import {
-    HeartIcon,
-    Share2Icon,
-    ShoppingCartIcon,
-  } from "svelte-feather-icons";
+	import { HeartIcon, Share2Icon, ShoppingCartIcon } from 'svelte-feather-icons'
 </script>
 
-<div class="wrapper">
-  <div class="icon-wrapper">
-    <HeartIcon size="24" strokeWidth="1" />
-  </div>
-  <div class="icon-wrapper">
-    <Share2Icon size="24" strokeWidth="1" />
-  </div>
-  <div class="icon-wrapper">
-    <ShoppingCartIcon size="24" strokeWidth="1" />
-  </div>
+<div class="hidden md:flex flex-col gap-1">
+	<div class="flex justify-center items-center w-10 h-10 rounded-full hover:bg-neutral/5">
+		<HeartIcon size="24" strokeWidth="1" />
+	</div>
+	<div class="flex justify-center items-center w-10 h-10 rounded-full hover:bg-neutral/5">
+		<Share2Icon size="24" strokeWidth="1" />
+	</div>
+	<div class="flex justify-center items-center w-10 h-10 rounded-full hover:bg-neutral/5">
+		<ShoppingCartIcon size="24" strokeWidth="1" />
+	</div>
 </div>
 
 <style>
-  .wrapper {
-    display: flex;
-    flex-direction: row;
-    min-width: 40px;
-    gap: 4px;
-    justify-content: flex-end;
-  }
-
-  .icon-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-  }
-
-  .icon-wrapper:hover {
-    background-color: var(--neutral-10);
-  }
-
-  @media (min-width: 768px) {
-    .wrapper {
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-  }
 </style>

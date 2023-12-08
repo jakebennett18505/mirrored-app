@@ -7,7 +7,7 @@
 	let container
 	let innerWidth
 
-	$: show = true
+	$: show = innerWidth < 1024
 
 	async function handleSignOut() {
 		await signOut(supabase)
@@ -49,20 +49,19 @@
 			</div>
 		</div>
 	</div>
-	<!-- mt-2 lg:absolute lg:p-3 lg:-left-4 lg:top-full lg:z-10 lg:mt-3 lg:w-screen lg:max-w-[200px] lg:overflow-hidden lg:rounded-3xl lg:bg-base-100 dark:bg-inherit lg:shadow-lg lg:ring-1 lg:ring-gray-900/5 dark:lg:ring-gray-100/5 dark:shadow-gray-100/5 -->
 	{#if show}
 		<div
 			class="mt-2 flex flex-col bg-base-100 p-2 lg:absolute lg:mt-12 lg:z-1 lg:w-[200px] lg:rounded-3xl lg:shadow-2xl">
 			{#each profileLinks as link}
 				<a
 					href={link.toLowerCase()}
-					class="-ml-3 block rounded-lg px-3 py-2 text-base font-light leading-6 lg:m-0 lg:text-sm hover:bg-neutral/5">
+					class="-ml-3 block rounded-lg px-3 py-2 text-lg font-light leading-6 lg:m-0 lg:text-sm hover:bg-neutral/5">
 					{link}
 				</a>
 			{/each}
 			<button
 				on:click={handleSignOut}
-				class="text-left -ml-3 block rounded-lg px-3 py-2 text-base font-light leading-6 lg:m-0 lg:text-sm hover:bg-neutral/5"
+				class="text-left -ml-3 block rounded-lg px-3 py-2 text-lg font-light leading-6 lg:m-0 lg:text-sm hover:bg-neutral/5"
 				>Logout
 			</button>
 		</div>

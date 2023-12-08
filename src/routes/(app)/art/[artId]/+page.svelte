@@ -1,126 +1,87 @@
 <script>
-  // Import necessary components
-  import ArtGallery from "/src/components/art/ArtGallery.svelte";
-  import ArtSocialIcons from "/src/components/art/ArtSocialIcons.svelte";
+	// Import necessary components
+	import ArtGallery from '/src/components/art/ArtGallery.svelte'
+	import ArtSocialIcons from '/src/components/art/ArtSocialIcons.svelte'
 
-  // Extract the 'artwork' data from the 'data' prop
-  export let data;
-  const { artwork } = data;
+	// Extract the 'artwork' data from the 'data' prop
+	export let data
+	const { artwork } = data
+	const images = artwork.artwork_images
+
+	console.log(artwork)
 </script>
 
 <!-- Artwork image section -->
-<section class="section">
-  <div class="lg:max-w-[1000px] container">
-    <div class="flex flex-col gap-8 justify-between max-h-[600px] md:flex-row">
-      <div class="hidden w-[120px] max-h-[600px] overflow-y-scroll no-scrollbar md:block">
-        <ArtGallery {artwork} />
-      </div>
-      <img
-        class="border w-full md:max-h-[600px] object-contain"
-        src={artwork.images[0]}
-        alt="Artwork" />
-      <ArtSocialIcons />
-    </div>
-  </div>
-</section>
+<div class="flex flex-col">
+	<section class="py-4 max-h-fit md:py-8">
+		<div class="lg:max-w-[1000px] container">
+			<div class="flex flex-col gap-8 justify-between max-h-[600px] md:flex-row">
+				<div class="hidden w-[120px] max-h-[600px] overflow-y-scroll no-scrollbar md:block">
+					<ArtGallery {artwork} />
+				</div>
+				<img
+					class="max-w-full max-h-[400px] md:max-h-[600px] object-contain"
+					src={images[0].imagePath}
+					alt="Artwork" />
+				<ArtSocialIcons />
+			</div>
+		</div>
+	</section>
 
-<!-- Artwork information section -->
-<section class="section">
-  <div class="container" data-type="narrow">
-    <div class="flex-group">
-      <div class="info-main flow">
-        <div>
-          <h1 class="subtitle-1">{artwork.title}</h1>
-          <p class="subtitle-3 fw-bold">€{artwork.price}</p>
-          <p class="subtitle-3">{artwork.brand}</p>
-        </div>
-        <p class="description">{artwork.description}</p>
-      </div>
-      <div class="specifications">
-        <table>
-          <tr>
-            <th>Painting:</th>
-            <td>Acrylic on Canvas</td>
-          </tr>
-          <tr>
-            <th>Size:</th>
-            <td>61 W x 61 H x 3.8 D cm</td>
-          </tr>
-          <tr>
-            <th>Created:</th>
-            <td>2022</td>
-          </tr>
-          <tr>
-            <th>Subjects:</th>
-            <td>Abstract</td>
-          </tr>
-          <tr>
-            <th>Materials:</th>
-            <td>Canvas</td>
-          </tr>
-          <tr>
-            <th>Styles:</th>
-            <td>Abstract, Conceptual</td>
-          </tr>
-          <tr>
-            <th>Mediums:</th>
-            <td>Acrylic</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
+	<!-- Artwork information section -->
+	<section class="py-4 md:py-8">
+		<div class="container">
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+				<div class="col-span-2 space-y-2">
+					<div>
+						<h3>{artwork.title}</h3>
+						<h4>€{artwork.year}</h4>
+					</div>
+					<p>{artwork.description}</p>
+				</div>
+				<div class="col-span-1">
+					<table class="table-auto">
+						<tbody>
+							<tr>
+								<th>Painting:</th>
+								<td>Acrylic on Canvas</td>
+							</tr>
+							<tr>
+								<th>Size:</th>
+								<td>61 W x 61 H x 3.8 D cm</td>
+							</tr>
+							<tr>
+								<th>Created:</th>
+								<td>2022</td>
+							</tr>
+							<tr>
+								<th>Subjects:</th>
+								<td>Abstract</td>
+							</tr>
+							<tr>
+								<th>Materials:</th>
+								<td>Canvas</td>
+							</tr>
+							<tr>
+								<th>Styles:</th>
+								<td>Abstract, Conceptual</td>
+							</tr>
+							<tr>
+								<th>Mediums:</th>
+								<td>Acrylic</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
 
 <style>
-  /* Styles for image section */
-  /* .art-grid {
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
-    max-height: 600px;
-    flex-direction: column;
-  } */
-
-  .image-carousel {
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    display: none;
-  }
-
-  .image-carousel::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Styles for information section */
-  th {
-    text-align: left;
-    font-weight: 600;
-    padding-right: 5px;
-  }
-
-  .specifications {
-    max-width: 350px;
-  }
-
-  .info-main {
-    flex: 1;
-    min-width: 65%;
-  }
-
-  /* @media (min-width: 45em) { */
-  /* Apply styles for screens wider than 45em (720px) */
-  /* .grid {
-      flex-direction: row;
-    }
-
-    .image-carousel {
-      display: block;
-    }
-
-    .artwork-image {
-      max-width: 100%;
-    }
-  } */
+	th {
+		text-align: left;
+		padding-right: 5px;
+	}
 </style>
+``
