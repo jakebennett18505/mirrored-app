@@ -20,7 +20,6 @@
 		lazyLoad: 'nearby',
 		breakpoints: {
 			768: {
-				focus: 'center',
 				height: '400px'
 			}
 		}
@@ -58,7 +57,7 @@
 {#if galleryLoading}
 	<div class="flex w-full flex-col gap-8 md:flex-row-reverse h-[500px] md:h-[600px]">
 		<div class="grow h-full skeleton"></div>
-		<div class="w-full h-[100px] md:w-[100px] md:h-full skeleton"></div>
+		<div class="w-full flex-none h-[60px] md:w-[100px] md:h-full skeleton"></div>
 	</div>
 {/if}
 
@@ -85,7 +84,6 @@
 
 <style>
 	:global(.splide__arrow) {
-		/* all: unset; */
 		align-items: center;
 		background: oklch(var(--b2));
 		border: 0;

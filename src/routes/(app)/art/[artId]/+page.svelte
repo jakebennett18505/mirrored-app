@@ -1,7 +1,6 @@
 <script>
 	// Import necessary components
 	import ArtImageGallery from '../../../../components/art/ArtImageGallery.svelte'
-	import ArtGallery from '/src/components/art/ArtGallery.svelte'
 	import ArtSocialIcons from '/src/components/art/ArtSocialIcons.svelte'
 
 	// Extract the 'artwork' data from the 'data' prop

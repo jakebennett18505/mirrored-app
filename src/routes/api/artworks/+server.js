@@ -14,7 +14,7 @@ export const GET = async (event) => {
 	  )
 	`
 		)
-		.order('id', { ascending: false })
+		.order('id', { ascending: true })
 
 	event.setHeaders({
 		'Cache-Control': 'max-age=60'
