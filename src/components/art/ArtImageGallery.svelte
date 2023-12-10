@@ -1,12 +1,13 @@
 <script>
 	import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide'
-	import '@splidejs/svelte-splide/css'
+	import '@splidejs/svelte-splide/css/core'
 	import { onMount } from 'svelte'
 
 	export let images
 
 	let main
 	let thumbs
+	let galleryLoading = true
 
 	const slides = images
 
@@ -16,6 +17,7 @@
 		pagination: false,
 		arrows: false,
 		height: '600px',
+		lazyLoad: 'nearby',
 		breakpoints: {
 			768: {
 				focus: 'center',
@@ -40,9 +42,7 @@
 				direction: 'ltr',
 				fixedWidth: 80,
 				fixedHeight: 60,
-				width: '94vw',
-				arrows: true,
-				padding: '1rem'
+				width: '94vw'
 			}
 		}
 	}
@@ -50,11 +50,22 @@
 	onMount(() => {
 		if (main && thumbs) {
 			main.sync(thumbs.splide)
+			galleryLoading = false
 		}
 	})
 </script>
 
-<div class="flex flex-col gap-8 md:flex-row-reverse">
+{#if galleryLoading}
+	<div class="flex w-full flex-col gap-8 md:flex-row-reverse h-[500px] md:h-[600px]">
+		<div class="grow h-full skeleton"></div>
+		<div class="w-full h-[100px] md:w-[100px] md:h-full skeleton"></div>
+	</div>
+{/if}
+
+<div
+	class="flex flex-col gap-8 md:flex-row-reverse min-h-[500px] md:min-h-[600px] {galleryLoading
+		? 'hidden'
+		: ''}">
 	<Splide options={mainOptions} bind:this={main} aria-labelledby="thumbnails-example-heading">
 		{#each slides as slide}
 			<SplideSlide>
@@ -97,5 +108,13 @@
 	}
 	:global(.splide__arrow--next) {
 		right: 0;
+	}
+
+	:global(.splide__slide) {
+		opacity: 0.6;
+	}
+
+	:global(.splide__slide.is-active) {
+		opacity: 1;
 	}
 </style>
