@@ -1,9 +1,11 @@
 <script>
 	export let artwork
+	let images = artwork.artwork_images_artworkId_fkey
+	console.log(images)
 </script>
 
 <div class="wrapper">
-	{#each artwork.artwork_images as image}
+	{#each images as image}
 		<img src={image.imagePath} alt="Something to see" />
 	{/each}
 </div>

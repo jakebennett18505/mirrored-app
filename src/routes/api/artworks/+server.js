@@ -14,7 +14,11 @@ export const GET = async (event) => {
 	  )
 	`
 		)
-		.order('id', { ascending: true })
+		.order('id', { ascending: false })
+
+	event.setHeaders({
+		'Cache-Control': 'max-age=60'
+	})
 
 	return json(artworks)
 }
