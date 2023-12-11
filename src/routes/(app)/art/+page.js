@@ -1,8 +1,7 @@
 /** @type {import('./$types').PageLoad} */
 
-import { dev } from '$app/environment';
-
-export const csr = dev;
-
-export async function load({fetch}){
+export async function load({ fetch }) {
+	const response = await fetch('/api/artworks')
+	const artworks = await response.json()
+	return { artworks }
 }

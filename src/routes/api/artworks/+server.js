@@ -12,9 +12,14 @@ export const GET = async (event) => {
 	  artwork_images!artworks_titleImageId_fkey (
 		imagePath
 	  )
-	`
+	`,
+			{ count: 'exact' }
 		)
 		.order('id', { ascending: true })
+
+	event.setHeaders({
+		'Cache-Control': 'max-age=60'
+	})
 
 	return json(artworks)
 }

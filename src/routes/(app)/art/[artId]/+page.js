@@ -1,14 +1,8 @@
-import { supabase } from '$lib/supabaseClient'
+/** @type {import('./$types').PageLoad} */
 
-export async function load({ params }) {
-	let artId = params.artId
-	let { data, error } = await supabase
-		.from('artworks')
-		.select('*, artwork_images (imagePath) ')
-		.eq('id', artId)
-		.single()
-
-	return {
-		artwork: data ?? []
-	}
+export async function load({ fetch, params }) {
+	const { artId } = params
+	const response = await fetch(`/api/artworks/${artId}`)
+	const artworkData = await response.json()
+	return { artworkData }
 }
