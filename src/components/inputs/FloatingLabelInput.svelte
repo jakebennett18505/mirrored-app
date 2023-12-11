@@ -74,7 +74,7 @@
   };
 
   const inputColorClasses = {
-    base: "border-neutral/30 focus:border-primary",
+    base: "border-neutral/10 focus:border-primary",
     green: "border-success/30 focus:border-success",
     red: "border-error/30 focus:border-error",
   };

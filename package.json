@@ -34,6 +34,7 @@
 		"@supabase/auth-helpers-sveltekit": "^0.10.7",
 		"@supabase/ssr": "^0.0.10",
 		"@supabase/supabase-js": "^2.39.0",
+		"@uploadcare/blocks": "0.30.4",
 		"svelte-bricks": "^0.2.1",
 		"svelte-feather-icons": "^4.0.1",
 		"tailwind-merge": "^2.1.0",

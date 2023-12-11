@@ -12,7 +12,8 @@ export const GET = async (event) => {
 	  artwork_images!artworks_titleImageId_fkey (
 		imagePath
 	  )
-	`
+	`,
+			{ count: 'exact' }
 		)
 		.order('id', { ascending: true })
 
