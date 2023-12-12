@@ -1,6 +1,8 @@
 <script>
 	import { page } from '$app/stores'
+	import { onMount } from 'svelte'
 	import { signOut } from '../auth.js'
+	import { userStore } from '$lib/stores.js'
 
 	const { session, supabase } = $page.data
 	const profileLinks = ['Profile', 'Settings']
@@ -35,19 +37,34 @@
 		>Sign up <span class="hidden lg:inline" aria-hidden="true">&rarr;</span></a>
 {:else}
 	<div bind:this={container} class="flex items-center gap-4 py-2 lg:p-0 lg:dropdown">
-		<button on:click={toggleMenu} tabindex="0" class="rounded-full w-16 h-16 lg:w-8 lg:h-8 avatar">
-			<div class="rounded-full">
-				<img
-					alt="Tailwind CSS Navbar component"
-					src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+		{#if !$userStore.firstName}
+			<div class="flex flex-col gap-4 w-52 lg:w-fit">
+				<div class="flex gap-4 items-center">
+					<div class="skeleton w-16 h-16 rounded-full shrink-0 lg:w-8 lg:h-8"></div>
+					<div class="flex flex-col gap-4 lg:hidden">
+						<div class="skeleton h-4 w-20"></div>
+						<div class="skeleton h-4 w-28"></div>
+					</div>
+				</div>
 			</div>
-		</button>
-		<div class="inline-block lg:hidden">
-			<div class="text-xl">Jane Doe</div>
-			<div>
-				{session.user.email}
+		{:else}
+			<button
+				on:click={toggleMenu}
+				tabindex="0"
+				class="rounded-full w-16 h-16 avatar cursor-default lg:w-8 lg:h-8 lg:cursor-pointer">
+				<div class="rounded-full">
+					<img
+						alt="Tailwind CSS Navbar component"
+						src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+				</div>
+			</button>
+			<div class="inline-block lg:hidden">
+				<div class="text-xl">{$userStore.firstName} {$userStore.lastName}</div>
+				<div>
+					{$userStore.auth.email}
+				</div>
 			</div>
-		</div>
+		{/if}
 	</div>
 	{#if show}
 		<div

@@ -4,9 +4,8 @@ import { supabase } from '../../../../lib/supabaseClient.js'
 // api/art GET
 
 export const GET = async (event) => {
-	const { artworkId } = event.params
+	const { artistId } = event.params
 
-	console.log(artworkId)
 	const artwork = await supabase
 		.from('artworks')
 		.select(
@@ -16,7 +15,7 @@ export const GET = async (event) => {
 		*
 	  )`
 		)
-		.eq('id', artworkId)
+		.eq('id', artistId)
 		.single()
 
 	event.setHeaders({
