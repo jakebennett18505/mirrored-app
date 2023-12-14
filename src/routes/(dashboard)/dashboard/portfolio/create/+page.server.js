@@ -1,7 +1,7 @@
 /** @type {import('./$types').PageServerLoad} */
 import { supabase } from '$lib/supabaseClient.js'
 import { createArtwork } from '$lib/database.js'
-import { fail } from '@sveltejs/kit'
+// import { fail } from '@sveltejs/kit'
 
 export const load = async () => {
 	const getMediums = async () => {
@@ -15,8 +15,10 @@ export const load = async () => {
 	}
 
 	const getArtworks = async () => {
-		const artworks = await supabase.from('artworks').select(
-			`
+		const artworks = await supabase
+			.from('artworks')
+			.select(
+				`
 			id,
 			createdAt,
 			artistId,
@@ -31,7 +33,8 @@ export const load = async () => {
 				mediums(name),
 				surfaces(name)
 				`
-		)
+			)
+			.order('id', { ascending: false })
 
 		return artworks
 	}

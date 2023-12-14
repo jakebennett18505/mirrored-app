@@ -19,9 +19,9 @@
 				value={form?.title ?? ''}
 				class="input input-bordered w-full"
 				placeholder="The Mona Lisa" />
-			{#if form?.error.includes('title')}
+			<!-- {#if form?.error.includes('title')}
 				<p class={form?.error.includes('title') ? 'text-error' : ''}>You forgot the title, yo!</p>
-			{/if}
+			{/if} -->
 		</div>
 		<div>
 			<label for="medium" class="label-text">Medium</label>
@@ -44,7 +44,7 @@
 			<p>{form.message}</p>
 		{/if}
 	</form>
-	{form}
+	<pre>{JSON.stringify(form, null, 2)}</pre>
 	<ul class="space-y-2">
 		{#each artworks?.data as artwork}
 			<div class="flex w-full max-w-sm justify-between">
