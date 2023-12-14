@@ -3,15 +3,24 @@ import { supabase } from '../../../lib/supabaseClient.js'
 
 // api/art GET
 
-export const GET = async (event) => {
+export const GET = async (event, searchParams) => {
 	const artworks = await supabase
 		.from('artworks')
 		.select(
 			`
-	  *,
+	  id,
+	  createdAt,
+	  artistId,
+	  title,
+	  year,
+	  price,
+	  width,
+	  height,
 	  artwork_images!artworks_titleImageId_fkey (
 		imagePath
-	  )
+	  ), 
+	  mediums(name),
+	  surfaces(name)
 	`,
 			{ count: 'exact' }
 		)

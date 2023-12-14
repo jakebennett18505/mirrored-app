@@ -11,7 +11,7 @@
 	beforeNavigate(() => (mobileMenuShow = false))
 
 	let mobileMenu
-	let mobileMenuShow = true
+	let mobileMenuShow = false
 
 	function toggleMobileMenu() {
 		mobileMenuShow = !mobileMenuShow

@@ -1,6 +1,10 @@
 <script>
 	/** @type {import('./$types').PageData} */
+	import { userStore } from '$lib/stores.js'
+
+	
+
 	export let data
 </script>
 
-<h2>This is the home page</h2>
+<h2>Welcome, {$userStore.firstName || 'stranger'}!</h2>
