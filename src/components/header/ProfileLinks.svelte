@@ -1,8 +1,6 @@
 <script>
 	import { page } from '$app/stores'
-	import { onMount } from 'svelte'
 	import { signOut } from '../auth.js'
-	import { userStore } from '$lib/stores.js'
 
 	const { session, supabase } = $page.data
 	const profileLinks = ['Profile', 'Settings']
@@ -26,6 +24,9 @@
 			if (container.contains(e.target) == false) show = false
 		}
 	}
+
+	let { data } = $page
+	let { user } = data
 </script>
 
 <svelte:window bind:innerWidth on:click={onWindowClick} />
@@ -37,7 +38,7 @@
 		>Sign up <span class="hidden lg:inline" aria-hidden="true">&rarr;</span></a>
 {:else}
 	<div bind:this={container} class="flex items-center gap-4 py-2 lg:p-0 lg:dropdown">
-		{#if !$userStore.firstName}
+		{#if !user.firstName}
 			<div class="flex flex-col gap-4 w-52 lg:w-fit">
 				<div class="flex gap-4 items-center">
 					<div class="skeleton w-16 h-16 rounded-full shrink-0 lg:w-8 lg:h-8"></div>
@@ -59,9 +60,9 @@
 				</div>
 			</button>
 			<div class="inline-block lg:hidden">
-				<div class="text-xl">{$userStore.firstName} {$userStore.lastName}</div>
+				<div class="text-xl">{user.firstName} {user.lastName}</div>
 				<div>
-					{$userStore.auth.email}
+					{user.email}
 				</div>
 			</div>
 		{/if}

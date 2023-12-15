@@ -37,7 +37,7 @@
 		? 'w-fit'
 		: 'w-64'} h-screen pt-20 transition-transform {$dashboardSidebar
 		? 'transform-none'
-		: '-translate-x-full'} bg-base-100 border-r border-neutral/10 md:translate-x-0 md:static"
+		: '-translate-x-full'} bg-base-100 border-r border-neutral/10 lg:translate-x-0"
 	aria-label="Sidebar">
 	<div class="overflow-y-auto py-5 px-3 h-full bg-base-100 relative">
 		<ul class="space-y-2">

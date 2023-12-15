@@ -1,5 +1,6 @@
 <script>
 	import DashboardSidebar from './DashboardSidebar.svelte'
+	import { page } from '$app/stores'
 
 	import { dashboardSidebar, userStore } from '$lib/stores.js'
 	import Logo from '/src/components/Logo.svelte'
@@ -21,7 +22,7 @@
 					<button
 						on:click={toggleSidebar}
 						type="button"
-						class="inline-flex items-center p-2 text-sm rounded-lg md:hidden hover:bg-neutral/5 focus:outline-none">
+						class="inline-flex items-center p-2 text-sm rounded-lg lg:hidden hover:bg-neutral/5 focus:outline-none">
 						<span class="sr-only">Open sidebar</span>
 						<MenuIcon />
 					</button>
@@ -36,7 +37,7 @@
 		<DashboardSidebar />
 
 		<!-- Content area -->
-		<div class="p-4 mt-14 grow">
+		<div class="p-4 mt-14 lg:ml-64 grow">
 			<slot />
 		</div>
 	</div>

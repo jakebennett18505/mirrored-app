@@ -23,22 +23,6 @@
 
 		return () => subscription.unsubscribe()
 	})
-
-	// TODO: move this to hooks
-	onMount(async () => {
-		if (session) {
-			try {
-				const response = await fetch(`/api/users/${session.user.id}`)
-				if (!response.ok) {
-					throw new Error(`HTTP error! status: ${response.status}`)
-				}
-				user = await response.json()
-				userStore.set(user)
-			} catch (error) {
-				console.error('Error when fetching user from root layout:', error)
-			}
-		}
-	})
 </script>
 
 <slot />
