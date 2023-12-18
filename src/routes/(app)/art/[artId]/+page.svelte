@@ -8,8 +8,6 @@
 	let { artworkData } = data
 	let artwork = artworkData.data
 	let images = artwork.artwork_images_artworkId_fkey
-
-	function selectImage() {}
 </script>
 
 <!-- Artwork image section -->

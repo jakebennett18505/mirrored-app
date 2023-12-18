@@ -5,42 +5,17 @@ import { createArtwork } from '$lib/database.js'
 
 export const load = async () => {
 	const getMediums = async () => {
-		const mediums = await supabase.from('mediums').select(`*`)
+		const mediums = await supabase.from('mediums').select(`*`).order('id', { ascending: true })
 		return mediums
 	}
 
 	const getSurfaces = async () => {
-		const surfaces = await supabase.from('surfaces').select(`*`)
+		const surfaces = await supabase.from('surfaces').select(`*`).order('id', { ascending: true })
 		return surfaces
 	}
 
-	const getArtworks = async () => {
-		const artworks = await supabase
-			.from('artworks')
-			.select(
-				`
-			id,
-			createdAt,
-			artistId,
-			title,
-			year,
-			price,
-			width,
-			height,
-			artwork_images!artworks_titleImageId_fkey (
-				imagePath
-				), 
-				mediums(name),
-				surfaces(name)
-				`
-			)
-			.order('id', { ascending: false })
-
-		return artworks
-	}
 
 	return {
-		artworks: getArtworks(),
 		mediums: getMediums(),
 		surfaces: getSurfaces()
 	}
@@ -58,8 +33,16 @@ export const actions = {
 		const artwork = {
 			artistId: artistId,
 			title: title,
-			mediumId: medium,
-			surfaceId: surface
+			mediumId: Number(medium),
+			surfaceId: Number(surface)
+		}
+
+		if (title.length < 2) {
+			return {
+				error: true,
+				message: 'Title must be at least 2 characters',
+				artwork
+			}
 		}
 
 		createArtwork(artwork)

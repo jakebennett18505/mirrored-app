@@ -3,7 +3,7 @@
 	export let form
 	import { enhance } from '$app/forms'
 
-	$: ({ artworks, mediums, surfaces } = data)
+	$: ({ mediums, surfaces } = data)
 </script>
 
 <div class="space-y-4">
@@ -13,29 +13,39 @@
 		<div>
 			<label for="title" class="label-text">Title</label>
 			<input
+				required
 				type="text"
 				name="title"
 				id="title"
-				value={form?.title ?? ''}
+				value={form?.artwork.title ?? ''}
 				class="input input-bordered w-full"
 				placeholder="The Mona Lisa" />
-			<!-- {#if form?.error.includes('title')}
-				<p class={form?.error.includes('title') ? 'text-error' : ''}>You forgot the title, yo!</p>
-			{/if} -->
 		</div>
 		<div>
 			<label for="medium" class="label-text">Medium</label>
-			<select name="medium" id="medium" class="select block select-bordered w-full">
+			<select
+				required
+				name="medium"
+				id="medium"
+				value={form?.artwork.mediumId ?? ''}
+				class="select block select-bordered w-full">
+				<option value="">Select medium</option>
 				{#each mediums?.data as medium}
-					<option value={medium.id} selected>{medium.name}</option>
+					<option value={medium.id}>{medium.name}</option>
 				{/each}
 			</select>
 		</div>
 		<div>
 			<label for="surface" class="label-text">Surface</label>
-			<select name="surface" id="surface" class="select block select-bordered w-full">
+			<select
+				required
+				name="surface"
+				id="surface"
+				value={form?.artwork.surfaceId ?? ''}
+				class="select block select-bordered w-full">
+				<option value="">Select surface</option>
 				{#each surfaces?.data as surface}
-					<option value={surface.id} selected>{surface.name}</option>
+					<option value={surface.id}>{surface.name}</option>
 				{/each}
 			</select>
 		</div>
@@ -45,15 +55,4 @@
 		{/if}
 	</form>
 	<pre>{JSON.stringify(form, null, 2)}</pre>
-	<ul class="space-y-2">
-		{#each artworks?.data as artwork}
-			<div class="flex w-full max-w-sm justify-between">
-				<li>{artwork.title}</li>
-				<form action="?/deleteArtwork" method="POST" use:enhance>
-					<input name="id" type="hidden" value={artwork.id} />
-					<button type="submit" class="btn btn-error btn-xs">Delete</button>
-				</form>
-			</div>
-		{/each}
-	</ul>
 </div>
